@@ -29,7 +29,6 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Logo */}
         <div
           className="text-[#2F5FED] text-xl font-bold"
           style={{ fontFamily: 'Satoshi' }}
