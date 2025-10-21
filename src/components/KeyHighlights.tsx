@@ -7,403 +7,283 @@ import Image from 'next/image';
 export default function KeyHighlights() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Multiple slide configurations - exact Figma positioning with semi-circle layout
   const slides = [
-    {
-      id: 0,
-      cards: [
-        {
-          title: "4x Smarter",
-          subtitle: "AI Model Synergy",
-          image: "/images/card-4xsmarter.png",
-          position: { left: -108, top: 568, width: 424.26, height: 415.84 }
-        },
-        {
-          title: "1-Click Reports",
-          subtitle: "Ready for Download",
-          image: "/images/card-1click.png",
-          position: { left: 208, top: 463, width: 384.74, height: 368.48 }
-        },
-        {
-          title: "175 sec",
-          subtitle: "Average Claim Completion Time",
-          image: "/images/card-175sec.png",
-          position: { left: 561, top: 453, width: 319, height: 296 }
-        },
-        {
-          title: "99%+",
-          subtitle: "Verified OCR Accuracy",
-          image: "/images/card-99percent.png",
-          position: { left: 852, top: 463, width: 384.74, height: 368.48 }
-        },
-        {
-          title: "4x Smarter",
-          subtitle: "AI Model Synergy",
-          image: "/images/card-4xsmarter.png",
-          position: { left: 1131, top: 568, width: 424.26, height: 415.84 }
-        }
-      ]
-    },
-    {
-      id: 1,
-      cards: [
-        {
-          title: "1-Click Reports",
-          subtitle: "Ready for Download",
-          image: "/images/card-1click.png",
-          position: { left: -108, top: 568, width: 424.26, height: 415.84 }
-        },
-        {
-          title: "175 sec",
-          subtitle: "Average Claim Completion Time",
-          image: "/images/card-175sec.png",
-          position: { left: 208, top: 463, width: 384.74, height: 368.48 }
-        },
-        {
-          title: "99%+",
-          subtitle: "Verified OCR Accuracy",
-          image: "/images/card-99percent.png",
-          position: { left: 561, top: 453, width: 319, height: 296 }
-        },
-        {
-          title: "4x Smarter",
-          subtitle: "AI Model Synergy",
-          image: "/images/card-4xsmarter.png",
-          position: { left: 852, top: 463, width: 384.74, height: 368.48 }
-        },
-        {
-          title: "1-Click Reports",
-          subtitle: "Ready for Download",
-          image: "/images/card-1click.png",
-          position: { left: 1131, top: 568, width: 424.26, height: 415.84 }
-        }
-      ]
-    },
-    {
-      id: 2,
-      cards: [
-        {
-          title: "175 sec",
-          subtitle: "Average Claim Completion Time",
-          image: "/images/card-175sec.png",
-          position: { left: -108, top: 568, width: 424.26, height: 415.84 }
-        },
-        {
-          title: "99%+",
-          subtitle: "Verified OCR Accuracy",
-          image: "/images/card-99percent.png",
-          position: { left: 208, top: 463, width: 384.74, height: 368.48 }
-        },
-        {
-          title: "4x Smarter",
-          subtitle: "AI Model Synergy",
-          image: "/images/card-4xsmarter.png",
-          position: { left: 561, top: 453, width: 319, height: 296 }
-        },
-        {
-          title: "1-Click Reports",
-          subtitle: "Ready for Download",
-          image: "/images/card-1click.png",
-          position: { left: 852, top: 463, width: 384.74, height: 368.48 }
-        },
-        {
-          title: "175 sec",
-          subtitle: "Average Claim Completion Time",
-          image: "/images/card-175sec.png",
-          position: { left: 1131, top: 568, width: 424.26, height: 415.84 }
-        }
-      ]
-    },
-    {
-      id: 3,
-      cards: [
-        {
-          title: "99%+",
-          subtitle: "Verified OCR Accuracy",
-          image: "/images/card-99percent.png",
-          position: { left: -108, top: 568, width: 424.26, height: 415.84 }
-        },
-        {
-          title: "4x Smarter",
-          subtitle: "AI Model Synergy",
-          image: "/images/card-4xsmarter.png",
-          position: { left: 208, top: 463, width: 384.74, height: 368.48 }
-        },
-        {
-          title: "1-Click Reports",
-          subtitle: "Ready for Download",
-          image: "/images/card-1click.png",
-          position: { left: 561, top: 453, width: 319, height: 296 }
-        },
-        {
-          title: "175 sec",
-          subtitle: "Average Claim Completion Time",
-          image: "/images/card-175sec.png",
-          position: { left: 852, top: 463, width: 384.74, height: 368.48 }
-        },
-        {
-          title: "99%+",
-          subtitle: "Verified OCR Accuracy",
-          image: "/images/card-99percent.png",
-          position: { left: 1131, top: 568, width: 424.26, height: 415.84 }
-        }
-      ]
-    }
+    [
+      {
+        title: '1-Click Reports',
+        subtitle: 'Ready for Download',
+        image: '/images/card-1click.png',
+      },
+      {
+        title: '175 sec',
+        subtitle: 'Average Claim Completion Time',
+        image: '/images/card-175sec.png',
+      },
+      {
+        title: '99%+',
+        subtitle: 'Verified OCR Accuracy',
+        image: '/images/card-99percent.png',
+      },
+      {
+        title: '4x Smarter',
+        subtitle: 'AI Model Synergy',
+        image: '/images/card-4xsmarter.png',
+      },
+    ],
+    [
+      {
+        title: '175 sec',
+        subtitle: 'Average Claim Completion Time',
+        image: '/images/card-175sec.png',
+      },
+      {
+        title: '99%+',
+        subtitle: 'Verified OCR Accuracy',
+        image: '/images/card-99percent.png',
+      },
+      {
+        title: '4x Smarter',
+        subtitle: 'AI Model Synergy',
+        image: '/images/card-4xsmarter.png',
+      },
+      {
+        title: '1-Click Reports',
+        subtitle: 'Ready for Download',
+        image: '/images/card-1click.png',
+      },
+    ],
+    [
+      {
+        title: '99%+',
+        subtitle: 'Verified OCR Accuracy',
+        image: '/images/card-99percent.png',
+      },
+      {
+        title: '4x Smarter',
+        subtitle: 'AI Model Synergy',
+        image: '/images/card-4xsmarter.png',
+      },
+      {
+        title: '1-Click Reports',
+        subtitle: 'Ready for Download',
+        image: '/images/card-1click.png',
+      },
+      {
+        title: '175 sec',
+        subtitle: 'Average Claim Completion Time',
+        image: '/images/card-175sec.png',
+      },
+    ],
+    [
+      {
+        title: '4x Smarter',
+        subtitle: 'AI Model Synergy',
+        image: '/images/card-4xsmarter.png',
+      },
+      {
+        title: '1-Click Reports',
+        subtitle: 'Ready for Download',
+        image: '/images/card-1click.png',
+      },
+      {
+        title: '175 sec',
+        subtitle: 'Average Claim Completion Time',
+        image: '/images/card-175sec.png',
+      },
+      {
+        title: '99%+',
+        subtitle: 'Verified OCR Accuracy',
+        image: '/images/card-99percent.png',
+      },
+    ],
   ];
 
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % slides.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  const handleNext = () => setActiveIndex((p) => (p + 1) % slides.length);
+  const handlePrev = () => setActiveIndex((p) => (p - 1 + slides.length) % slides.length);
 
   // Auto-rotate carousel every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % slides.length);
+      setActiveIndex((p) => (p + 1) % slides.length);
     }, 5000);
 
     // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  const currentSlide = slides[activeIndex];
+  const cards = slides[activeIndex];
 
   return (
-    <section className="relative w-full h-[1024px] bg-[#F0F5FF] overflow-hidden">
-      {/* Background blur elements */}
-      <div 
-        className="absolute left-[-290px] top-[457px] w-[561.94px] h-[686.36px] bg-[#F0F5FF]"
-        style={{ filter: 'blur(134px)' }}
+    <section className="relative w-full bg-[#F0F5FF] overflow-hidden py-28 md:py-40">
+      {/* Background blur */}
+      <div
+        className="absolute -left-60 bottom-0 w-[500px] h-[600px] bg-[#F0F5FF] blur-[130px] rounded-full"
       />
-      <div 
-        className="absolute left-[1165px] top-[457px] w-[561.94px] h-[686.36px] bg-[#F0F5FF]"
-        style={{ filter: 'blur(134px)' }}
+      <div
+        className="absolute -right-60 bottom-0 w-[500px] h-[600px] bg-[#F0F5FF] blur-[130px] rounded-full"
       />
 
-      {/* Section Header */}
-      <motion.div 
-        className="absolute left-[587px] top-[131px] w-[267px] h-[24px] text-black text-center"
-        style={{ 
-          fontFamily: 'Satoshi', 
-          fontSize: '24px', 
-          fontWeight: 500, 
-          lineHeight: '1em', 
-          letterSpacing: '0.24em' 
-        }}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        KEY HIGHLIGHTS
-      </motion.div>
-
-      {/* Highlight Pills */}
-      <motion.div 
-        className="absolute left-[425.5px] top-[179px] flex items-center gap-2"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1 }}
-      >
-        <div 
-          className="px-4 py-[10px] rounded-[60px]"
-          style={{ 
-            background: 'linear-gradient(134deg, rgb(47, 95, 237) 1%, rgb(84, 125, 245) 100%)' 
-          }}
+      {/* Header */}
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 text-center">
+        <motion.h5
+          className="tracking-[0.24em] font-medium text-lg text-black mb-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          <span 
-            className="text-white"
-            style={{ fontFamily: 'Satoshi', fontSize: '16px', fontWeight: 700, lineHeight: '1.125em' }}
-          >
+          KEY HIGHLIGHTS
+        </motion.h5>
+
+        <motion.div
+          className="flex flex-wrap justify-center gap-2 mb-10"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <span className="px-5 py-2.5 rounded-full text-white font-bold text-base bg-gradient-to-r from-[#2F5FED] to-[#547DF5]">
             Reduce claim turnaround by 80%
           </span>
-        </div>
-        <div className="px-4 py-[10px] rounded-[60px]">
-          <span 
-            className="text-black"
-            style={{ fontFamily: 'Satoshi', fontSize: '16px', fontWeight: 500, lineHeight: '1.125em' }}
-          >
+          <span className="px-5 py-2.5 rounded-full text-black font-medium text-base bg-transparent">
             with enterprise-grade AI automation.
           </span>
-        </div>
-      </motion.div>
-
-      {/* Main Title */}
-      <motion.h2 
-        className="absolute left-[300px] top-[284px] w-[841px] h-[70px] text-black text-center"
-        style={{ 
-          fontFamily: 'Satoshi', 
-          fontSize: '56px', 
-          fontWeight: 700, 
-          lineHeight: '1.25em' 
-        }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        Lightning-Fast Claim Processing
-      </motion.h2>
-
-      {/* Description */}
-      <motion.p 
-        className="absolute left-[247px] top-[366px] w-[947px] h-[24px] text-black text-center"
-        style={{ 
-          fontFamily: 'Satoshi', 
-          fontSize: '20px', 
-          fontWeight: 500, 
-          lineHeight: '1.2em' 
-        }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-      >
-        Processes claims in just 175 seconds — faster than any manual or semi-automated system in the industry.
-      </motion.p>
-
-      {/* Cards in Semi-Circle Layout */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="absolute w-full h-full"
-        >
-          {currentSlide.cards.map((card, index) => (
-            <motion.div
-              key={`${activeIndex}-${index}`}
-              className="absolute bg-white border border-[#D8DDE7] rounded-3xl overflow-hidden"
-              style={{
-                left: `${card.position.left}px`,
-                top: `${card.position.top}px`,
-                width: `${card.position.width}px`,
-                height: `${card.position.height}px`,
-                boxShadow: '0px 4px 34px 0px rgba(0, 0, 0, 0.08)'
-              }}
-              initial={{ opacity: 0, scale: 0.8, y: 50 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: 50 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              {/* Card Image */}
-              <div className="relative w-full h-[70%]">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Card Footer */}
-              <div className="absolute bottom-0 left-0 w-full bg-[#F9FFDC] px-6 py-3 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <h4 
-                    className="text-black"
-                    style={{ fontFamily: 'Satoshi', fontSize: '24px', fontWeight: 500, lineHeight: '1.167em' }}
-                  >
-                    {card.title}
-                  </h4>
-                  <div className="w-5 h-5 bg-[#F9FFDC] border border-[#C9DC69] rounded-xl flex items-center justify-center">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path d="M4.5 6L5.5 7L7.5 5" stroke="#C9DC69" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                      <circle cx="6" cy="6" r="5" stroke="#C9DC69" strokeWidth="1"/>
-                    </svg>
-                  </div>
-                </div>
-                <p 
-                  className="text-black text-right flex-1 uppercase"
-                  style={{ 
-                    fontFamily: 'Satoshi', 
-                    fontSize: '10px', 
-                    fontWeight: 500, 
-                    lineHeight: '1.4em', 
-                    letterSpacing: '-0.02em' 
-                  }}
-                >
-                  {card.subtitle}
-                </p>
-              </div>
-            </motion.div>
-          ))}
         </motion.div>
-      </AnimatePresence>
 
-      {/* Custom Pagination Dots */}
-      <motion.div
-        className="absolute left-[665px] top-[821px] flex items-center gap-1.5"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-      >
-        {slides.map((_, index) => (
+        <motion.h2
+          className="font-bold text-[2.4rem] md:text-[3.5rem] text-black leading-tight mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          Lightning-Fast Claim Processing
+        </motion.h2>
+
+        <motion.p
+          className="text-[1.125rem] md:text-[1.25rem] text-black font-medium max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          Processes claims in just <strong>175 seconds</strong> — faster than any manual or semi-automated system in the industry.
+        </motion.p>
+      </div>
+
+      {/* Cards carousel */}
+      <div className="relative mt-20 flex justify-center">
+        <AnimatePresence mode="wait">
           <motion.div
-            key={index}
+            key={activeIndex}
+            className="flex gap-6 md:gap-10 flex-wrap justify-center max-w-[1280px] px-6"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            transition={{ duration: 0.6 }}
+          >
+            {cards.map((card, i) => (
+              <motion.div
+                key={i}
+                className="relative bg-white rounded-3xl border border-[#D8DDE7] overflow-hidden shadow-[0_4px_34px_rgba(0,0,0,0.08)] flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_6px_40px_rgba(0,0,0,0.1)]"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                style={{
+                  flex: '1 1 260px',
+                  maxWidth: '300px',
+                  transform: `rotateY(${(i - 1.5) * 10}deg) scale(${1 - Math.abs(i - 1.5) * 0.1})`,
+                }}
+              >
+                <div className="relative h-56 md:h-64 w-full">
+                  <Image src={card.image} alt={card.title} fill className="object-cover" />
+                </div>
+                <div className="bg-[#F9FFDC] px-5 py-3 flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <h4 className="font-medium text-lg text-black">{card.title}</h4>
+                    <div className="w-5 h-5 border border-[#C9DC69] rounded-xl flex items-center justify-center">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                      >
+                        <path
+                          d="M4.5 6L5.5 7L7.5 5"
+                          stroke="#C9DC69"
+                          strokeWidth="1"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <circle
+                          cx="6"
+                          cy="6"
+                          r="5"
+                          stroke="#C9DC69"
+                          strokeWidth="1"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="uppercase text-[10px] font-medium text-black text-right flex-1 ml-2 tracking-tight">
+                    {card.subtitle}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Pagination */}
+      <div className="mt-10 flex justify-center items-center gap-3">
+        {slides.map((_, i) => (
+          <motion.div
+            key={i}
+            onClick={() => setActiveIndex(i)}
             className="cursor-pointer"
-            onClick={() => setActiveIndex(index)}
             whileHover={{ scale: 1.1 }}
           >
-            {index === activeIndex ? (
-              <div className="w-[31px] h-[10px] relative">
-                <div className="absolute top-0 left-0 w-[31px] h-[5px] bg-[#C9DC69] rounded-t-full" />
-                <div className="absolute bottom-0 left-0 w-[31px] h-[5px] bg-[#C9DC69] rounded-b-full" />
-              </div>
+            {i === activeIndex ? (
+              <div className="w-[31px] h-[10px] bg-[#C9DC69] rounded-full" />
             ) : (
-              <div className="w-[10px] h-[10px] relative">
-                <div className="absolute top-0 left-0 w-[10px] h-[5px] bg-[#C9DC69] opacity-50 rounded-t-full" />
-                <div className="absolute bottom-0 left-0 w-[10px] h-[5px] bg-[#C9DC69] opacity-50 rounded-b-full" />
-              </div>
+              <div className="w-[10px] h-[10px] bg-[#C9DC69]/50 rounded-full" />
             )}
           </motion.div>
         ))}
-      </motion.div>
+      </div>
 
-      {/* Navigation Buttons - Both Left and Right */}
-      <motion.div
-        className="absolute left-[622px] top-[857px] flex items-center gap-3"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.7 }}
-      >
-        {/* Left Arrow */}
+      {/* Navigation buttons */}
+      <div className="mt-8 flex justify-center gap-4">
         <motion.button
-          className="w-[40px] h-[40px] rounded-full bg-[#F9FFDC] border border-[#C9DC69] flex items-center justify-center hover:border-[#A4B852] transition-colors duration-200"
+          className="w-10 h-10 rounded-full bg-[#F9FFDC] border border-[#C9DC69] flex items-center justify-center hover:border-[#A4B852] transition-all"
           onClick={handlePrev}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path 
-              d="M16 12L8 12M8 12L12 16M8 12L12 8" 
-              stroke="#000000" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M16 12H8M8 12l4 4m-4-4l4-4"
+              stroke="#000"
+              strokeWidth="2"
+              strokeLinecap="round"
               strokeLinejoin="round"
             />
           </svg>
         </motion.button>
-
-        {/* Right Arrow */}
         <motion.button
-          className="w-[40px] h-[40px] rounded-full bg-[#F9FFDC] border border-[#C9DC69] flex items-center justify-center hover:border-[#A4B852] transition-colors duration-200"
+          className="w-10 h-10 rounded-full bg-[#F9FFDC] border border-[#C9DC69] flex items-center justify-center hover:border-[#A4B852] transition-all"
           onClick={handleNext}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path 
-              d="M8 12L16 12M16 12L12 8M16 12L12 16" 
-              stroke="#000000" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M8 12h8m0 0l-4-4m4 4l-4 4"
+              stroke="#000"
+              strokeWidth="2"
+              strokeLinecap="round"
               strokeLinejoin="round"
             />
           </svg>
         </motion.button>
-      </motion.div>
+      </div>
     </section>
   );
 }
