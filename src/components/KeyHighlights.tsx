@@ -7,111 +7,111 @@ import Image from 'next/image';
 export default function KeyHighlights() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const slides = [
-    [
-      {
-        title: '1-Click Reports',
-        subtitle: 'Ready for Download',
-        image: '/images/card-1click.png',
-      },
-      {
-        title: '175 sec',
-        subtitle: 'Average Claim Completion Time',
-        image: '/images/card-175sec.png',
-      },
-      {
-        title: '99%+',
-        subtitle: 'Verified OCR Accuracy',
-        image: '/images/card-99percent.png',
-      },
-      {
-        title: '4x Smarter',
-        subtitle: 'AI Model Synergy',
-        image: '/images/card-4xsmarter.png',
-      },
-    ],
-    [
-      {
-        title: '175 sec',
-        subtitle: 'Average Claim Completion Time',
-        image: '/images/card-175sec.png',
-      },
-      {
-        title: '99%+',
-        subtitle: 'Verified OCR Accuracy',
-        image: '/images/card-99percent.png',
-      },
-      {
-        title: '4x Smarter',
-        subtitle: 'AI Model Synergy',
-        image: '/images/card-4xsmarter.png',
-      },
-      {
-        title: '1-Click Reports',
-        subtitle: 'Ready for Download',
-        image: '/images/card-1click.png',
-      },
-    ],
-    [
-      {
-        title: '99%+',
-        subtitle: 'Verified OCR Accuracy',
-        image: '/images/card-99percent.png',
-      },
-      {
-        title: '4x Smarter',
-        subtitle: 'AI Model Synergy',
-        image: '/images/card-4xsmarter.png',
-      },
-      {
-        title: '1-Click Reports',
-        subtitle: 'Ready for Download',
-        image: '/images/card-1click.png',
-      },
-      {
-        title: '175 sec',
-        subtitle: 'Average Claim Completion Time',
-        image: '/images/card-175sec.png',
-      },
-    ],
-    [
-      {
-        title: '4x Smarter',
-        subtitle: 'AI Model Synergy',
-        image: '/images/card-4xsmarter.png',
-      },
-      {
-        title: '1-Click Reports',
-        subtitle: 'Ready for Download',
-        image: '/images/card-1click.png',
-      },
-      {
-        title: '175 sec',
-        subtitle: 'Average Claim Completion Time',
-        image: '/images/card-175sec.png',
-      },
-      {
-        title: '99%+',
-        subtitle: 'Verified OCR Accuracy',
-        image: '/images/card-99percent.png',
-      },
-    ],
+  const allCards = [
+    {
+      title: '175 sec',
+      subtitle: 'Average Claim Completion Time',
+      description: 'Process complete insurance claims from document upload to final report generation in under 3 minutes.',
+      image: '/images/card-175sec.png',
+      metric: '80% Faster',
+      category: 'Speed',
+      headerTitle: 'Lightning-Fast Claim Processing',
+      headerDescription: 'Processes claims in just <strong>175 seconds</strong> with <strong>99.7% accuracy</strong> — combining the power of multiple AI models, enterprise security, and 24/7 reliability to transform your claim processing workflow.'
+    },
+    {
+      title: '99.7%',
+      subtitle: 'Document Recognition Accuracy',
+      description: 'Industry-leading OCR accuracy with advanced AI models that understand complex medical and insurance documents.',
+      image: '/images/card-99percent.png',
+      metric: '99.7% Accuracy',
+      category: 'Precision',
+      headerTitle: 'Unmatched Document Accuracy',
+      headerDescription: 'Achieve <strong>99.7% recognition accuracy</strong> on complex insurance documents — our advanced AI models understand medical terminology, handwriting, and varied document formats with unprecedented precision.'
+    },
+    {
+      title: '4x Smarter',
+      subtitle: 'Multi-AI Model Integration',
+      description: 'Combines GPT-4, Claude, and Gemini for redundant processing and maximum reliability across all document types.',
+      image: '/images/card-4xsmarter.png',
+      metric: '3 AI Models',
+      category: 'Intelligence',
+      headerTitle: 'Revolutionary AI Intelligence',
+      headerDescription: 'Powered by <strong>3 leading AI models</strong> working in parallel — GPT-4, Claude, and Gemini ensure maximum reliability, accuracy, and intelligent decision-making for every claim.'
+    },
+    {
+      title: '1-Click',
+      subtitle: 'Instant Report Generation',
+      description: 'Generate comprehensive claim reports, summaries, and compliance documents with a single click.',
+      image: '/images/card-1click.png',
+      metric: '15+ Formats',
+      category: 'Efficiency',
+      headerTitle: 'Effortless Report Generation',
+      headerDescription: 'Generate professional reports in <strong>15+ formats</strong> with a single click — from detailed claim summaries to compliance documents, everything is automated and ready instantly.'
+    },
+    {
+      title: 'Real-Time',
+      subtitle: 'Live Processing Dashboard',
+      description: 'Monitor claim processing status, view confidence scores, and track progress with live updates and notifications.',
+      image: '/images/ai-powered-extraction.png',
+      metric: 'Live Updates',
+      category: 'Monitoring',
+      headerTitle: 'Real-Time Processing Intelligence',
+      headerDescription: 'Track every claim with <strong>live updates</strong> and confidence scores — monitor processing status, view AI decisions, and get instant notifications as claims move through the pipeline.'
+    },
+    {
+      title: '24/7/365',
+      subtitle: 'Continuous Operations',
+      description: 'Automated claim processing that never stops, with built-in failover systems and 99.9% uptime guarantee.',
+      image: '/images/human-in-loop.png',
+      metric: '99.9% Uptime',
+      category: 'Reliability',
+      headerTitle: 'Always-On Claim Processing',
+      headerDescription: 'Never stop processing claims with <strong>99.9% uptime guarantee</strong> — our redundant systems and automated failover ensure continuous operations, day and night.'
+    },
+    {
+      title: 'Zero Setup',
+      subtitle: 'Cloud-Native Deployment',
+      description: 'Start processing claims immediately with our cloud infrastructure. No software installation or IT setup required.',
+      image: '/images/confidence-scoring.png',
+      metric: '< 5 min Setup',
+      category: 'Deployment',
+      headerTitle: 'Instant Cloud Deployment',
+      headerDescription: 'Get started in <strong>under 5 minutes</strong> — no software to install, no servers to manage. Our cloud-native platform is ready to process your claims immediately.'
+    },
+    {
+      title: 'Enterprise',
+      subtitle: 'Security & Compliance',
+      description: 'HIPAA, SOC2, and GDPR compliant with bank-level encryption, audit trails, and enterprise security controls.',
+      image: '/images/compliance-hipaa-gdpr-3e0c6f.png',
+      metric: 'SOC2 + HIPAA',
+      category: 'Security',
+      headerTitle: 'Enterprise-Grade Security',
+      headerDescription: 'Protect sensitive data with <strong>SOC2 and HIPAA compliance</strong> — bank-level encryption, comprehensive audit trails, and enterprise security controls keep your claims secure.'
+    },
   ];
+
+  // Create slides with 2 cards each
+  const slides = [];
+  for (let i = 0; i < allCards.length; i += 2) {
+    slides.push(allCards.slice(i, i + 2));
+  }
 
   const handleNext = () => setActiveIndex((p) => (p + 1) % slides.length);
   const handlePrev = () => setActiveIndex((p) => (p - 1 + slides.length) % slides.length);
 
-  // Auto-rotate carousel every 5 seconds
+  // Auto-rotate carousel every 7 seconds (slower for bigger cards)
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((p) => (p + 1) % slides.length);
-    }, 5000);
+    }, 7000);
 
     // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, [slides.length]);
 
   const cards = slides[activeIndex];
+  // Get the first card of the current slide for header content
+  const currentHeaderCard = cards[0];
 
   return (
     <section className="relative w-full bg-[#F0F5FF] overflow-hidden py-28 md:py-40">
@@ -149,22 +149,23 @@ export default function KeyHighlights() {
         </motion.div>
 
         <motion.h2
+          key={`header-title-${activeIndex}`}
           className="font-bold text-[2.4rem] md:text-[3.5rem] text-black leading-tight mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Lightning-Fast Claim Processing
+          {currentHeaderCard.headerTitle}
         </motion.h2>
 
         <motion.p
-          className="text-[1.125rem] md:text-[1.25rem] text-black font-medium max-w-3xl mx-auto"
+          key={`header-desc-${activeIndex}`}
+          className="text-[1.125rem] md:text-[1.25rem] text-black font-medium max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          Processes claims in just <strong>175 seconds</strong> — faster than any manual or semi-automated system in the industry.
-        </motion.p>
+          dangerouslySetInnerHTML={{ __html: currentHeaderCard.headerDescription }}
+        />
       </div>
 
       {/* Cards carousel */}
@@ -172,7 +173,7 @@ export default function KeyHighlights() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}
-            className="flex gap-6 md:gap-10 flex-wrap justify-center max-w-[1280px] px-6"
+            className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-12 justify-center items-stretch max-w-[1400px] px-6 md:px-8"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
@@ -181,49 +182,68 @@ export default function KeyHighlights() {
             {cards.map((card, i) => (
               <motion.div
                 key={i}
-                className="relative bg-white rounded-3xl border border-[#D8DDE7] overflow-hidden shadow-[0_4px_34px_rgba(0,0,0,0.08)] flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_6px_40px_rgba(0,0,0,0.1)]"
-                initial={{ opacity: 0, scale: 0.9 }}
+                className="relative bg-white rounded-3xl border border-[#D8DDE7] overflow-hidden shadow-[0_4px_34px_rgba(0,0,0,0.08)] flex flex-col transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_8px_50px_rgba(0,0,0,0.12)] w-full max-w-lg md:max-w-xl lg:max-w-2xl"
+                initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
                 style={{
-                  flex: '1 1 260px',
-                  maxWidth: '300px',
-                  transform: `rotateY(${(i - 1.5) * 10}deg) scale(${1 - Math.abs(i - 1.5) * 0.1})`,
+                  minHeight: '550px',
                 }}
               >
-                <div className="relative h-56 md:h-64 w-full">
-                  <Image src={card.image} alt={card.title} fill className="object-cover" />
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="px-3 py-1 bg-[#2F5FED] text-white text-xs font-semibold rounded-full uppercase tracking-wide">
+                    {card.category}
+                  </span>
                 </div>
-                <div className="bg-[#F9FFDC] px-5 py-3 flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <h4 className="font-medium text-lg text-black">{card.title}</h4>
-                    <div className="w-5 h-5 border border-[#C9DC69] rounded-xl flex items-center justify-center">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                      >
-                        <path
-                          d="M4.5 6L5.5 7L7.5 5"
-                          stroke="#C9DC69"
-                          strokeWidth="1"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <circle
-                          cx="6"
-                          cy="6"
-                          r="5"
-                          stroke="#C9DC69"
-                          strokeWidth="1"
-                        />
-                      </svg>
+
+                {/* Metric Badge */}
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="px-3 py-1 bg-[#F9FFDC] border border-[#C9DC69] text-black text-xs font-semibold rounded-full">
+                    {card.metric}
+                  </span>
+                </div>
+
+                {/* Card Image */}
+                <div className="relative h-80 md:h-96 lg:h-[400px] w-full">
+                  <Image 
+                    src={card.image} 
+                    alt={card.title} 
+                    fill 
+                    className="object-cover" 
+                  />
+                  {/* Gradient overlay for better text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                </div>
+                
+                {/* Card Content */}
+                <div className="bg-[#F9FFDC] px-6 py-6 flex-grow flex flex-col justify-between">
+                  <div className="mb-4">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex-1">
+                        <h4 className="font-bold text-2xl md:text-3xl lg:text-4xl text-black mb-2 leading-tight">
+                          {card.title}
+                        </h4>
+                        <p className="uppercase text-sm font-semibold text-black/70 tracking-wide leading-relaxed mb-3">
+                          {card.subtitle}
+                        </p>
+                        <p className="text-black/80 text-sm md:text-base leading-relaxed mb-4">
+                          {card.description}
+                        </p>
+                        
+                        {/* CTA Button */}
+                        <button
+                          onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
+                          className="bg-[#2F5FED] hover:bg-[#1E40AF] text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105 w-fit"
+                          style={{ fontFamily: 'Satoshi' }}
+                        >
+                          Book a Live Demo
+                        </button>
+                      </div>
+
                     </div>
                   </div>
-                  <p className="uppercase text-[10px] font-medium text-black text-right flex-1 ml-2 tracking-tight">
-                    {card.subtitle}
-                  </p>
+                  
                 </div>
               </motion.div>
             ))}
@@ -232,22 +252,24 @@ export default function KeyHighlights() {
       </div>
 
       {/* Pagination */}
-      <div className="mt-10 flex justify-center items-center gap-3">
+      <div className="mt-12 flex justify-center items-center gap-4">
         {slides.map((_, i) => (
           <motion.div
             key={i}
             onClick={() => setActiveIndex(i)}
-            className="cursor-pointer"
-            whileHover={{ scale: 1.1 }}
+            className="cursor-pointer relative"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
           >
             {i === activeIndex ? (
-              <div className="w-[31px] h-[10px] bg-[#C9DC69] rounded-full" />
+              <div className="w-12 h-3 bg-[#C9DC69] rounded-full shadow-lg" />
             ) : (
-              <div className="w-[10px] h-[10px] bg-[#C9DC69]/50 rounded-full" />
+              <div className="w-3 h-3 bg-[#C9DC69]/40 rounded-full hover:bg-[#C9DC69]/60 transition-colors" />
             )}
           </motion.div>
         ))}
       </div>
+
 
       {/* Navigation buttons */}
       <div className="mt-8 flex justify-center gap-4">
