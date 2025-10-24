@@ -110,7 +110,7 @@ export default function ComplianceSection() {
 
                 {/* CTA Button */}
                 <motion.button 
-                  onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
+                  onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
                   className="px-6 py-3 rounded-full text-white text-sm font-bold"
                   style={{ 
                     background: 'rgba(255, 255, 255, 0.1)', 
@@ -172,7 +172,7 @@ export default function ComplianceSection() {
 
                 {/* CTA Button */}
                 <motion.button 
-                  onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
+                  onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
                   className="px-6 py-3 rounded-full border border-black text-[#1D2433] text-sm font-bold"
                   style={{ 
                     background: 'rgba(255, 255, 255, 0.1)', 

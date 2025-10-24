@@ -135,7 +135,7 @@ export default function TechnologySection() {
               <motion.button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`relative h-14 rounded-xl flex items-center justify-center gap-2 md:gap-3 px-2 md:px-4 transition-all duration-300 ${
+                className={`relative h-14 rounded-xl flex items-center justify-start gap-2 md:gap-3 px-2 md:px-2 transition-all duration-300 ${
                   activeTab === tab.key 
                     ? 'text-white overflow-hidden' 
                     : 'bg-[#F0F5FF] border border-[#D8DDE7] text-black hover:border-[#2F5FED30] hover:bg-[#F0F5FF]'
@@ -164,7 +164,7 @@ export default function TechnologySection() {
                   }`}>
                     <tab.icon 
                       size={activeTab === tab.key ? 20 : 16}
-                      className={activeTab === tab.key ? 'text-[#2F5FED]' : 'text-[#2F5FED]'}
+                      className={activeTab === tab.key ? 'text-[#2F5FED]' : 'text-[#2F5FED]  bg-gray-200'} 
                     />
                   </div>
                   
@@ -257,7 +257,7 @@ export default function TechnologySection() {
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <button
-                  onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
+                  onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
                   className="bg-[#2F5FED] hover:bg-[#1E40AF] text-white px-6 py-3 rounded-lg font-semibold text-sm md:text-base transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   style={{ fontFamily: 'Satoshi' }}
                 >

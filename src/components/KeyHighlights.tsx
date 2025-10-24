@@ -140,12 +140,14 @@ export default function KeyHighlights() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <span className="px-5 py-2.5 rounded-full text-white font-bold text-base bg-gradient-to-r from-[#2F5FED] to-[#547DF5]">
-            Reduce claim turnaround by 80%
-          </span>
-          <span className="px-5 py-2.5 rounded-full text-black font-medium text-base bg-transparent">
-            with enterprise-grade AI automation.
-          </span>
+          <div className="flex flex-wrap justify-center gap-2 bg-white rounded-4xl px-1 py-1">
+            <span className="px-5 py-2.5 rounded-full text-white font-bold text-base bg-gradient-to-r from-[#2F5FED] to-[#547DF5]">
+              Reduce claim turnaround by 80%
+            </span>
+            <span className="px-5 py-2.5 rounded-full text-black font-medium text-base bg-transparent">
+              with enterprise-grade AI automation.
+            </span>
+          </div>
         </motion.div>
 
         <motion.h2
@@ -233,7 +235,7 @@ export default function KeyHighlights() {
                         
                         {/* CTA Button */}
                         <button
-                          onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
+                          onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
                           className="bg-[#2F5FED] hover:bg-[#1E40AF] text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105 w-fit"
                           style={{ fontFamily: 'Satoshi' }}
                         >

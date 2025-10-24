@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function FooterSection() {
   return (
-    <section className="relative w-full min-h-screen bg-[#F0F5FF] overflow-hidden py-16 md:py-20 lg:py-24">
+    <section className="relative w-full min-h-screen bg-[#F0F5FF] overflow-hidden py-8 md:py-20 lg:py-24">
       <div className="absolute inset-0 w-full h-full">
         <Image
           src="/images/footer-background.png"
@@ -19,7 +19,7 @@ export default function FooterSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
         
         <motion.div
-          className="mb-8 md:mb-12 lg:mb-16"
+          className="mb-8 md:mb-12 lg:mb-8"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -72,7 +72,7 @@ export default function FooterSection() {
           >
 
             <motion.button 
-              onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
+              onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
               className="bg-[#F9FFDC] text-[#1D2433] px-6 py-3 rounded-full hover:bg-white transition-all duration-300 text-sm font-bold"
               style={{ fontFamily: 'Satoshi' }}
               whileHover={{ scale: 1.05 }}

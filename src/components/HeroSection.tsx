@@ -52,7 +52,7 @@ const HeroSection = () => {
 
         {/* CTA */}
         <motion.button
-          onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
+          onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
           className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#2F5FED] to-[#547DF5] text-white rounded-full text-sm font-bold px-5 py-2.5 border border-[#B8C6ED] hover:shadow-lg transition-all duration-300"
           style={{ fontFamily: 'Satoshi' }}
           whileHover={{ scale: 1.05 }}
@@ -92,7 +92,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           {/* <motion.button
-            onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
+            onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
             className="bg-white/10 backdrop-blur-sm text-[#1D2433] rounded-full text-sm font-bold px-5 py-2.5 hover:bg-white/20 transition-all duration-300"
             style={{ fontFamily: 'Satoshi' }}
             whileHover={{ scale: 1.05 }}
@@ -102,7 +102,7 @@ const HeroSection = () => {
           </motion.button> */}
 
           <motion.button
-            onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
+            onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
             className="bg-gradient-to-r from-[#2F5FED] to-[#547DF5] text-white rounded-full text-sm font-bold px-5 py-2.5 hover:shadow-lg transition-all duration-300"
             style={{ fontFamily: 'Satoshi' }}
             whileHover={{ scale: 1.05 }}
@@ -113,7 +113,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      <div className="relative z-10 flex justify-between items-center w-full max-w-6xl mt-16 flex-wrap gap-6">
+      <div className="relative z-10 flex justify-between items-center w-full max-w-6xl  flex-wrap gap-6">
         <motion.div
           className="w-32 sm:w-44 md:w-52"
           initial={{ opacity: 0, y: 30 }}
@@ -146,7 +146,7 @@ const HeroSection = () => {
       </div>
 
       <motion.div
-        className="relative z-10 bg-white/30 rounded-2xl mt-16 p-6 w-full max-w-5xl backdrop-blur-md"
+        className="relative z-10 bg-white/30 rounded-2xl  p-6 w-full max-w-5xl backdrop-blur-md"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1 }}
