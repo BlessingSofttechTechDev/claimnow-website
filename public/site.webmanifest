@@ -1,0 +1,37 @@
+{
+  "name": "ClaimNow AI - Medical Claims Processing",
+  "short_name": "ClaimNow",
+  "description": "AI-powered medical claims processing platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F0F5FF",
+  "theme_color": "#2F5FED",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/main.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["healthcare", "productivity", "business"],
+  "shortcuts": [
+    {
+      "name": "Book Demo",
+      "url": "/#key-highlights",
+      "description": "Schedule a live demo"
+    },
+    {
+      "name": "How It Works",
+      "url": "/#how-it-works",
+      "description": "Learn about our process"
+    }
+  ]
+}
