@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full min-h-screen bg-[#F0F5FF] overflow-hidden flex flex-col items-center justify-start px-6 sm:px-12 md:px-20">
+    <section className="relative w-full min-h-screen bg-[#F0F5FF] overflow-hidden flex flex-col items-center justify-start px-6 sm:px-12 md:px-20 py-0">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -38,21 +38,36 @@ const HeroSection = () => {
 
         {/* Links (hidden on small) */}
         <div className="hidden md:flex gap-6">
-          {['How it Works', 'Product Demo', 'Key Features', 'Use Cases'].map((link) => (
+          {[
+            { name: 'How it Works', href: '#how-it-works' },
+            { name: 'Product Demo', href: '#results' },
+            { name: 'Key Features', href: '#technology' },
+            { name: 'Use Cases', href: '#key-highlights' }
+          ].map((link) => (
             <a
-              key={link}
-              href="#"
-              className="text-[#1D2433] text-sm font-medium hover:text-[#2F5FED] transition-colors"
+              key={link.name}
+              href={link.href}
+              className="text-[#1D2433] text-sm font-medium hover:text-[#2F5FED] transition-colors cursor-pointer"
               style={{ fontFamily: 'Satoshi' }}
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector(link.href);
+                if (element) {
+                  element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
             >
-              {link}
+              {link.name}
             </a>
           ))}
         </div>
 
         {/* CTA */}
         <motion.button
-          onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
+          onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
           className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#2F5FED] to-[#547DF5] text-white rounded-full text-sm font-bold px-5 py-2.5 border border-[#B8C6ED] hover:shadow-lg transition-all duration-300"
           style={{ fontFamily: 'Satoshi' }}
           whileHover={{ scale: 1.05 }}
@@ -102,7 +117,7 @@ const HeroSection = () => {
           </motion.button> */}
 
           <motion.button
-            onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
+            onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
             className="bg-gradient-to-r from-[#2F5FED] to-[#547DF5] text-white rounded-full text-sm font-bold px-5 py-2.5 hover:shadow-lg transition-all duration-300"
             style={{ fontFamily: 'Satoshi' }}
             whileHover={{ scale: 1.05 }}
@@ -154,7 +169,7 @@ const HeroSection = () => {
         <div className="flex flex-wrap justify-around items-center gap-6 text-center">
           {[
             { value: '99%+', label: 'OCR ACCURACY' },
-            { value: '99.9%', label: 'PRECISION' },
+            { value: '>99%', label: 'ACCURACY' },
             { value: '7X', label: 'FASTER CLAIMS' },
           ].map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center">

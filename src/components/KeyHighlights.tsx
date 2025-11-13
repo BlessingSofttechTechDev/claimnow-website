@@ -114,7 +114,7 @@ export default function KeyHighlights() {
   const currentHeaderCard = cards[0];
 
   return (
-    <section className="relative w-full bg-[#F0F5FF] overflow-hidden py-28 md:py-40">
+    <section id="key-highlights" className="relative w-full bg-[#F0F5FF] overflow-hidden py-12 sm:py-16 lg:py-20 xl:py-24">
       {/* Background blur */}
       <div
         className="absolute -left-60 bottom-0 w-[500px] h-[600px] bg-[#F0F5FF] blur-[130px] rounded-full"
@@ -235,7 +235,7 @@ export default function KeyHighlights() {
                         
                         {/* CTA Button */}
                         <button
-                          onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
+                          onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
                           className="bg-[#2F5FED] hover:bg-[#1E40AF] text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105 w-fit"
                           style={{ fontFamily: 'Satoshi' }}
                         >

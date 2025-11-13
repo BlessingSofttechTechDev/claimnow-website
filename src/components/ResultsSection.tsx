@@ -138,7 +138,7 @@ export default function ResultsSection() {
   const currentCardData = cardData.find(card => card.id === expandedCard) || cardData[0];
 
   return (
-    <section className="w-full bg-[#F0F5FF] py-6 sm:py-8 lg:py-12">
+    <section id="results" className="w-full bg-[#F0F5FF] py-12 sm:py-16 lg:py-20 xl:py-24">
       {/* Container with responsive measurements */}
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-3">
         

@@ -1,197 +1,275 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 export default function HowItWorks() {
-  const [activeStep, setActiveStep] = useState(1);
+  const [active, setActive] = useState(1);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveStep((prev) => {
-        return prev === 5 ? 1 : prev + 1;
-      });
-    }, 4000);
-
+      setActive((p) => (p === 5 ? 1 : p + 1));
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const stepData = {
-    1: {
+  const steps = [
+    {
       title: 'Ingest',
-      description: 'Upload documents via API, PDF, image, or e-form — ClaimNow instantly captures every data point using smart OCR and NLP.',
-      image: '/images/document-ingestion.png'
+      desc: 'Upload documents via API, PDF, image, or e-form. ClaimNow instantly captures every data point using smart OCR and NLP.',
+      image: '/images/document-ingestion.png',
     },
-    2: {
+    {
       title: 'AI-Powered Extraction',
-      description: 'Our multi-model AI core extracts data with 99.9% text recognition accuracy, even from complex or low-quality scans. It auto-detects billing codes, line items, and procedural charges — eliminating manual keying errors.',
-      image: '/images/ai-powered-extraction.png'
+      desc: 'Our multi-model AI extracts data with 99.9% accuracy, even from poor-quality scans. It detects billing codes, line items, and procedural charges automatically.',
+      image: '/images/ai-powered-extraction.png',
     },
-    3: {
-      title: 'Confidence Scoring & Parallel Review',
-      description: 'Every field includes a confidence indicator — highlighted in yellow whenever AI is less than 100% certain. With our parallel viewing interface, you can cross-check extracted data alongside the original PDF in real time.',
-      image: '/images/confidence-scoring.png'
+    {
+      title: 'Confidence Scoring & Review',
+      desc: 'Each field includes a confidence indicator. Review uncertain fields alongside the original PDF in our parallel viewer — in real time.',
+      image: '/images/confidence-scoring.png',
     },
-    4: {
+    {
       title: 'Rules Engine & Adjudication',
-      description: 'Built-in rulesets automatically validate claims against policy coverage, exclusions, and government guidelines — ensuring complete transparency.',
-      image: '/images/rules-engine.png'
+      desc: 'Built-in validation rules check every claim against coverage, exclusions, and compliance guidelines — ensuring accuracy and fairness.',
+      image: '/images/rules-engine.png',
     },
-    5: {
+    {
       title: 'Human-in-the-Loop',
-      description: 'When necessary, reviewers can step in seamlessly without disrupting the automated pipeline. This AI + human synergy guarantees the perfect balance of speed, accuracy, and accountability.',
-      image: '/images/human-in-loop.png'
-    }
-  };
+      desc: 'When needed, human reviewers can step in seamlessly. The synergy between AI and humans guarantees speed and accountability.',
+      image: '/images/human-in-loop.png',
+    },
+  ];
 
-  const currentStepData = stepData[activeStep as keyof typeof stepData];
+  const current = steps[active - 1];
 
   return (
-    <section className="relative w-full min-h-screen bg-[#F0F5FF] overflow-hidden py-8 md:py-16 lg:py-20">
-      <div className="absolute inset-0 w-full h-full">
-        <Image 
-          src="/images/hero-background.png" 
-          alt="Background"
-          fill
-          className="object-cover opacity-30"
-        />
+    <section
+      id="how-it-works"
+      className="relative overflow-hidden bg-gradient-to-br from-[#F0F5FF] via-[#F7FAFF] to-[#FFFFFF] py-12 sm:py-16 lg:py-20 xl:py-24"
+    >
+      {/* Enhanced Background Elements */}
+      <div className="absolute inset-0">
+        {/* Primary gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#EBF0FF]/60 via-[#F7F9FF]/40 to-[#FFFFFF]/80" />
+        
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#C9DC69]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#2F5FED]/5 rounded-full blur-3xl" />
+        
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-40" style={{
+          backgroundImage: `url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><g fill='%23C9DC69' fill-opacity='0.03'><circle cx='30' cy='30' r='1'/></g></g></svg>")`
+        }} />
       </div>
-      <div className="absolute inset-0 bg-[#F0F5FF] opacity-60" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Enhanced Header Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center mb-16 lg:mb-20"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-gray-600 opacity-40 text-lg md:text-xl lg:text-2xl font-bold mb-4 md:mb-6" 
-              style={{ fontFamily: 'Satoshi' }}>
-            How ClaimNow Works
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C9DC69]/10 border border-[#C9DC69]/20 rounded-full mb-6">
+            <div className="w-2 h-2 bg-[#C9DC69] rounded-full animate-pulse" />
+            <span className="text-[#2E3B5B] text-sm font-semibold tracking-wide uppercase" style={{ fontFamily: 'Satoshi' }}>
+              How ClaimNow Works
+            </span>
+          </div>
+          
+          <h2 className="text-[#0E1117] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 max-w-5xl mx-auto" style={{ fontFamily: 'Satoshi' }}>
+            Intelligent Automation,
+            <br />
+            <span className="bg-gradient-to-r from-[#2F5FED] to-[#C9DC69] bg-clip-text text-transparent">
+              Step by Step
+            </span>
           </h2>
           
-          {/* Dynamic step title */}
-          <motion.h3
-            key={activeStep}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-black text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6"
-            style={{ fontFamily: 'Satoshi' }}
-          >
-            {currentStepData.title}
-          </motion.h3>
-          <motion.p
-            key={`desc-${activeStep}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-black text-center text-sm md:text-base lg:text-lg xl:text-xl max-w-4xl mx-auto leading-relaxed"
-            style={{ fontFamily: 'DM Sans' }}
-          >
-            {currentStepData.description}
-          </motion.p>
+          <p className="text-[#2E3B5B]/70 text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto" style={{ fontFamily: 'DM Sans' }}>
+            Every claim moves through our intelligent pipeline — seamlessly combining AI automation with human insight for unmatched accuracy and transparency.
+          </p>
         </motion.div>
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 xl:gap-16 mt-8 md:mt-16">
-          <div className="hidden lg:block relative">
-            <div className="relative w-96 h-96 xl:w-[500px] xl:h-[500px]">
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 500">
-                <defs>
-                  <linearGradient id="circleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="rgba(47, 95, 237, 0)" />
-                    <stop offset="51%" stopColor="rgba(37, 74, 185, 0.2)" />
-                    <stop offset="100%" stopColor="rgba(27, 54, 135, 0)" />
-                  </linearGradient>
-                </defs>
-                <circle cx="250" cy="250" r="240" fill="none" stroke="url(#circleGradient)" strokeWidth="1" />
-                <circle cx="250" cy="250" r="180" fill="none" stroke="url(#circleGradient)" strokeWidth="1" />
-                <circle cx="250" cy="250" r="120" fill="none" stroke="url(#circleGradient)" strokeWidth="1" />
-              </svg>
-              {[1, 2, 3, 4, 5].map((step, index) => {
-                const angle = (index * 72 - 90) * (Math.PI / 180);
-                const radius = 160;
-                const x = 250 + radius * Math.cos(angle);
-                const y = 250 + radius * Math.sin(angle);
-                
-                return (
-                  <motion.button
-                    key={step}
-                    onClick={() => setActiveStep(step)}
-                    className={`absolute w-16 h-16 xl:w-20 xl:h-20 rounded-full flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 ${
-                      activeStep === step 
-                        ? 'bg-gradient-to-br from-[#F9FFDC] to-[#FDFFF4] border border-[#C9DC69] text-[#1D2433] shadow-lg' 
-                        : 'bg-transparent text-[rgba(29,36,51,0.8)] border border-gray-300'
-                    }`}
-                    style={{ 
-                      left: `${x}px`, 
-                      top: `${y}px`,
-                      fontFamily: 'DM Sans', 
-                      fontSize: activeStep === step ? '18px' : '16px', 
-                      fontWeight: activeStep === step ? 600 : 500
-                    }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    0{step}
 
-                    {activeStep === step && (
-                      <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        className="absolute inset-0 rounded-full border-8 border-[rgba(201,220,105,0.24)]"
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          
+          {/* Left Column - Steps */}
+          <div className="lg:col-span-5 xl:col-span-5">
+            <div className="relative space-y-4">
+              {/* Connecting line */}
+              <div className="absolute left-6 top-8 bottom-8 w-[2px] bg-gradient-to-b from-[#C9DC69] via-[#C9DC69]/30 to-[#C9DC69]/10" />
+              
+              {steps.map((step, i) => (
+                <motion.div
+                  key={i}
+                  onClick={() => setActive(i + 1)}
+                  className={`relative group cursor-pointer transition-all duration-300 ${
+                    active === i + 1 ? 'scale-[1.02]' : 'hover:scale-[1.01]'
+                  }`}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                >
+                  <div className={`relative flex items-start gap-6 p-6 lg:p-8 rounded-2xl backdrop-blur-sm transition-all duration-300 ${
+                    active === i + 1
+                      ? 'bg-white shadow-xl border border-[#C9DC69]/40 shadow-[#C9DC69]/10'
+                      : 'bg-white/60 hover:bg-white/80 border border-white/20 hover:shadow-lg'
+                  }`}>
+                    
+                    {/* Step Number */}
+                    <div className={`relative z-10 flex items-center justify-center w-12 h-12 rounded-full font-bold text-lg transition-all duration-300 ${
+                      active === i + 1
+                        ? 'bg-gradient-to-br from-[#C9DC69] to-[#B8CC5A] text-[#1D2433] shadow-lg'
+                        : 'bg-gradient-to-br from-[#EEF2FA] to-[#E5E9F0] text-[#2E3B5B]/60 group-hover:from-[#C9DC69]/20 group-hover:to-[#C9DC69]/10'
+                    }`} style={{ fontFamily: 'Satoshi' }}>
+                      {i + 1}
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <h4 className={`text-xl lg:text-2xl font-bold mb-3 transition-colors duration-300 ${
+                        active === i + 1 ? 'text-[#1D2433]' : 'text-[#2E3B5B] group-hover:text-[#1D2433]'
+                      }`} style={{ fontFamily: 'Satoshi' }}>
+                        {step.title}
+                      </h4>
+                      
+                      <p className={`text-base lg:text-lg leading-relaxed transition-colors duration-300 ${
+                        active === i + 1 ? 'text-[#1D2433]/80' : 'text-[#2E3B5B]/60 group-hover:text-[#2E3B5B]/80'
+                      }`} style={{ fontFamily: 'DM Sans' }}>
+                        {step.desc}
+                      </p>
+                    </div>
+
+                    {/* Active indicator */}
+                    {active === i + 1 && (
+                      <motion.div 
+                        className="absolute right-6 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-[#C9DC69] rounded-full"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.3 }}
                       />
                     )}
-                  </motion.button>
-                );
-              })}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Progress Indicators */}
+            <div className="flex justify-center lg:justify-start gap-2 mt-8">
+              {steps.map((_, i) => (
+                <motion.button
+                  key={i}
+                  onClick={() => setActive(i + 1)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    active === i + 1
+                      ? 'bg-[#C9DC69] w-8 shadow-sm'
+                      : 'bg-[#C9DC69]/30 w-3 hover:bg-[#C9DC69]/50'
+                  }`}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                />
+              ))}
             </div>
           </div>
-          <div className="lg:hidden flex justify-center space-x-4 mb-8">
-            {[1, 2, 3, 4, 5].map((step) => (
-              <motion.button
-                key={step}
-                onClick={() => setActiveStep(step)}
-                className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                  activeStep === step 
-                    ? 'bg-gradient-to-br from-[#F9FFDC] to-[#FDFFF4] border border-[#C9DC69] text-[#1D2433] shadow-lg' 
-                    : 'bg-transparent text-[rgba(29,36,51,0.8)] border border-gray-300'
-                }`}
-                style={{ 
-                  fontFamily: 'DM Sans', 
-                  fontSize: '14px', 
-                  fontWeight: activeStep === step ? 600 : 500
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                0{step}
-                {activeStep === step && (
-                  <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="absolute inset-0 rounded-full border-4 border-[rgba(201,220,105,0.24)]"
+
+          {/* Right Column - Image */}
+          <div className="lg:col-span-7 xl:col-span-7">
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, scale: 0.95, x: 40 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, x: -20 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative"
+                >
+                  {/* Main image container */}
+                  <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-white to-gray-50">
+                    <Image
+                      src={current.image}
+                      alt={current.title}
+                      fill
+                      className="object-cover transition-transform duration-700 hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
+                    />
+                    
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E1117]/10 via-transparent to-transparent" />
+                  </div>
+
+                  {/* Floating decorative elements */}
+                  <motion.div 
+                    className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#C9DC69]/20 to-[#C9DC69]/5 rounded-full blur-xl"
+                    animate={{ 
+                      scale: [1, 1.1, 1],
+                      opacity: [0.5, 0.8, 0.5]
+                    }}
+                    transition={{ 
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
                   />
-                )}
-              </motion.button>
-            ))}
-          </div>
-          <motion.div
-            key={`step${activeStep}-image`}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="flex-shrink-0 w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
-          >
-            <div className="relative aspect-[2/3] w-full">
-              <Image 
-                src={currentStepData.image}
-                alt={`${currentStepData.title} Interface`}
-                fill
-                className="object-contain rounded-lg"
-              />
+                  
+                  <motion.div 
+                    className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-[#2F5FED]/10 to-[#2F5FED]/5 rounded-full blur-2xl"
+                    animate={{ 
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.6, 0.3]
+                    }}
+                    transition={{ 
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1
+                    }}
+                  />
+
+                  {/* Step indicator on image */}
+                  <motion.div 
+                    className="absolute top-6 left-6 flex items-center gap-3 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-lg"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <div className="w-3 h-3 bg-[#C9DC69] rounded-full animate-pulse" />
+                    <span className="text-[#1D2433] font-semibold text-sm" style={{ fontFamily: 'Satoshi' }}>
+                      Step {active}
+                    </span>
+                  </motion.div>
+                </motion.div>
+              </AnimatePresence>
             </div>
-          </motion.div>
+          </div>
         </div>
+
+        {/* Call to Action */}
+        <motion.div 
+          className="text-center mt-16 lg:mt-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <motion.button
+            onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#2F5FED] to-[#547DF5] text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+            style={{ fontFamily: 'Satoshi' }}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            See ClaimNow in Action
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );

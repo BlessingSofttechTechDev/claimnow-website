@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function ComplianceSection() {
   return (
-    <section className="relative w-full bg-[#F0F5FF] py-8 md:py-16 lg:py-20">
+    <section className="relative w-full bg-[#F0F5FF] py-12 sm:py-16 lg:py-20 xl:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.h2 
@@ -110,7 +110,7 @@ export default function ComplianceSection() {
 
                 {/* CTA Button */}
                 <motion.button 
-                  onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
+                  onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
                   className="px-6 py-3 rounded-full text-white text-sm font-bold"
                   style={{ 
                     background: 'rgba(255, 255, 255, 0.1)', 
@@ -172,7 +172,7 @@ export default function ComplianceSection() {
 
                 {/* CTA Button */}
                 <motion.button 
-                  onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
+                  onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
                   className="px-6 py-3 rounded-full border border-black text-[#1D2433] text-sm font-bold"
                   style={{ 
                     background: 'rgba(255, 255, 255, 0.1)', 

@@ -107,7 +107,7 @@ export default function TechnologySection() {
   const IconComponent = currentContent.icon;
 
   return (
-    <section className="relative w-full bg-[#F0F5FF] py-8 md:py-16 lg:py-20">
+    <section id="technology" className="relative w-full bg-[#F0F5FF] py-12 sm:py-16 lg:py-20 xl:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.h2 
@@ -257,7 +257,7 @@ export default function TechnologySection() {
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <button
-                  onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
+                  onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
                   className="bg-[#2F5FED] hover:bg-[#1E40AF] text-white px-6 py-3 rounded-lg font-semibold text-sm md:text-base transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   style={{ fontFamily: 'Satoshi' }}
                 >
