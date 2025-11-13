@@ -5,6 +5,7 @@ import TechnologySection from '@/components/TechnologySection'
 import ComplianceSection from '@/components/ComplianceSection'
 import ResultsSection from '@/components/ResultsSection'
 import FooterSection from '@/components/FooterSection'
+import FloatingCTA from '@/components/FloatingCTA'
 
 export default function Home() {
   return (
@@ -26,6 +27,9 @@ export default function Home() {
         <ResultsSection />
         <FooterSection />
       </div>
+
+      {/* Floating CTA Button */}
+      <FloatingCTA />
     </main>
   )
 }

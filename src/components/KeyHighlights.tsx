@@ -9,24 +9,24 @@ export default function KeyHighlights() {
 
   const allCards = [
     {
-      title: '175 sec',
-      subtitle: 'Average Claim Completion Time',
-      description: 'Process complete insurance claims from document upload to final report generation in under 3 minutes.',
+      title: 'Zero Errors',
+      subtitle: 'Fastest Claim Processing',
+      description: 'Process complete insurance claims from document upload to final report generation with zero errors and unmatched speed.',
       image: '/images/card-175sec.png',
-      metric: '80% Faster',
+      metric: '0 Errors',
       category: 'Speed',
-      headerTitle: 'Lightning-Fast Claim Processing',
-      headerDescription: 'Processes claims in just <strong>175 seconds</strong> with <strong>99.7% accuracy</strong> — combining the power of multiple AI models, enterprise security, and 24/7 reliability to transform your claim processing workflow.'
+      headerTitle: 'Fastest Claim Processing with 0 Errors',
+      headerDescription: 'Experience <strong>fastest claim processing with 0 errors</strong> — combining the power of multiple AI models, enterprise security, and 24/7 reliability to transform your claim processing workflow.'
     },
     {
-      title: '99.7%',
+      title: '> 99%',
       subtitle: 'Document Recognition Accuracy',
       description: 'Industry-leading OCR accuracy with advanced AI models that understand complex medical and insurance documents.',
       image: '/images/card-99percent.png',
-      metric: '99.7% Accuracy',
+      metric: '> 99% Accuracy',
       category: 'Precision',
-      headerTitle: 'Unmatched Document Accuracy',
-      headerDescription: 'Achieve <strong>99.7% recognition accuracy</strong> on complex insurance documents — our advanced AI models understand medical terminology, handwriting, and varied document formats with unprecedented precision.'
+      headerTitle: '> 99% Accuracy',
+      headerDescription: 'Achieve <strong>> 99% accuracy</strong> on complex insurance documents — our advanced AI models understand medical terminology, handwriting, and varied document formats with unprecedented precision.'
     },
     {
       title: '4x Smarter',
@@ -81,12 +81,12 @@ export default function KeyHighlights() {
     {
       title: 'Enterprise',
       subtitle: 'Security & Compliance',
-      description: 'HIPAA, SOC2, and GDPR compliant with bank-level encryption, audit trails, and enterprise security controls.',
-      image: '/images/compliance-hipaa-gdpr-3e0c6f.png',
-      metric: 'SOC2 + HIPAA',
+      description: 'HIPAA, DPDPA, and GDPR compliant with bank-level encryption, audit trails, and enterprise security controls.',
+      image: '/images/enterprise-security.png',
+      metric: 'DPDPA + HIPAA',
       category: 'Security',
       headerTitle: 'Enterprise-Grade Security',
-      headerDescription: 'Protect sensitive data with <strong>SOC2 and HIPAA compliance</strong> — bank-level encryption, comprehensive audit trails, and enterprise security controls keep your claims secure.'
+      headerDescription: 'Protect sensitive data with <strong>DPDPA and HIPAA compliance</strong> — bank-level encryption, comprehensive audit trails, and enterprise security controls keep your claims secure.'
     },
   ];
 
@@ -176,18 +176,25 @@ export default function KeyHighlights() {
           <motion.div
             key={activeIndex}
             className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-12 justify-center items-stretch max-w-[1400px] px-6 md:px-8"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 40 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: 100, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -100, scale: 0.95 }}
+            transition={{ 
+              duration: 0.7,
+              ease: [0.22, 1, 0.36, 1] // Custom cubic-bezier for smoother animation
+            }}
           >
             {cards.map((card, i) => (
               <motion.div
                 key={i}
                 className="relative bg-white rounded-3xl border border-[#D8DDE7] overflow-hidden shadow-[0_4px_34px_rgba(0,0,0,0.08)] flex flex-col transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_8px_50px_rgba(0,0,0,0.12)] w-full max-w-lg md:max-w-xl lg:max-w-2xl"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: i * 0.15,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
                 style={{
                   minHeight: '550px',
                 }}
@@ -232,15 +239,7 @@ export default function KeyHighlights() {
                         <p className="text-black/80 text-sm md:text-base leading-relaxed mb-4">
                           {card.description}
                         </p>
-                        
-                        {/* CTA Button */}
-                        <button
-                          onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
-                          className="bg-[#2F5FED] hover:bg-[#1E40AF] text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105 w-fit"
-                          style={{ fontFamily: 'Satoshi' }}
-                        >
-                          Book a Live Demo
-                        </button>
+
                       </div>
 
                     </div>

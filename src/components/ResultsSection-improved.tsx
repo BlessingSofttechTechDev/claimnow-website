@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import Image from 'next/image';
+
 
 type CardType = 'faster-settlements' | 'accuracy' | 'efficiency' | 'satisfaction';
 

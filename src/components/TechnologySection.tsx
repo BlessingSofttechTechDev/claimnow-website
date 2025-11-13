@@ -2,304 +2,138 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
-import { 
-  Cpu, 
-  Database, 
-  DollarSign, 
-  Clock, 
-  Shield, 
-  Brain 
-} from 'lucide-react';
-
-type TabType = 'ai-power' | 'data-edge' | 'cost-edge' | '24x7-care' | 'secure' | 'smart-ai';
-
-interface TabContent {
-  title: string;
-  description: string;
-  features: string[];
-  image: string;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
-}
-
-const tabContents: Record<TabType, TabContent> = {
-  'ai-power': {
-    title: 'Consistent, Fast & Reliable Processing',
-    description: 'ClaimNow\'s redundant AI fallback mechanism ensures uninterrupted processing — even if one model faces delays or downtime.',
-    features: [
-      'Multiple AI engines process claims in parallel for uninterrupted workflow.',
-      'Automatic fallback ensures zero downtime during model switchovers.',
-      'Built-in load balancing keeps processing speed and accuracy intact.'
-    ],
-    image: '/images/ai-powered-extraction.png',
-    icon: Cpu
-  },
-  'data-edge': {
-    title: 'Advanced Data Intelligence',
-    description: 'Leverage cutting-edge data processing capabilities to extract maximum insights from every claim document.',
-    features: [
-      'Real-time data analysis with 99.9% accuracy rates.',
-      'Advanced pattern recognition for complex document structures.',
-      'Intelligent data validation and cross-referencing.'
-    ],
-    image: '/images/confidence-scoring.png',
-    icon: Database
-  },
-  'cost-edge': {
-    title: 'Cost-Effective Operations',
-    description: 'Reduce operational costs while maintaining high-quality claim processing through intelligent automation.',
-    features: [
-      'Up to 70% reduction in processing costs.',
-      'Automated workflow optimization.',
-      'Predictive cost analysis and budgeting.'
-    ],
-    image: '/images/rules-engine.png',
-    icon: DollarSign
-  },
-  '24x7-care': {
-    title: '24/7 Continuous Care',
-    description: 'Round-the-clock claim processing and support to ensure your operations never stop.',
-    features: [
-      'Continuous processing without human intervention.',
-      '24/7 system monitoring and health checks.',
-      'Instant alerts and automated recovery systems.'
-    ],
-    image: '/images/human-in-loop.png',
-    icon: Clock
-  },
-  'secure': {
-    title: 'Enterprise-Grade Security',
-    description: 'Bank-level security protocols protect your sensitive claim data with end-to-end encryption.',
-    features: [
-      'End-to-end encryption for all data transfers.',
-      'HIPAA and SOC2 compliant infrastructure.',
-      'Advanced threat detection and prevention.'
-    ],
-    image: '/images/secure-deployment-demo.png',
-    icon: Shield
-  },
-  'smart-ai': {
-    title: 'Intelligent AI Processing',
-    description: 'Smart AI algorithms that learn and adapt to your specific claim processing requirements.',
-    features: [
-      'Machine learning models that improve over time.',
-      'Custom AI training for specific use cases.',
-      'Intelligent decision-making based on historical data.'
-    ],
-    image: '/images/triple-model-integration.png',
-    icon: Brain
-  }
-};
+import { Cpu, Database, Shield } from 'lucide-react';
 
 export default function TechnologySection() {
-  const [activeTab, setActiveTab] = useState<TabType>('ai-power');
-
-  const tabs: Array<{ key: TabType; label: string; icon: React.ComponentType<{ size?: number; className?: string }> }> = [
-    { key: 'ai-power', label: 'AI Power', icon: Cpu },
-    { key: 'data-edge', label: 'Data Edge', icon: Database },
-    { key: 'cost-edge', label: 'Cost Edge', icon: DollarSign },
-    { key: '24x7-care', label: '24×7 Care', icon: Clock },
-    { key: 'secure', label: 'Secure', icon: Shield },
-    { key: 'smart-ai', label: 'Smart AI', icon: Brain },
+  const stats = [
+    { label: 'Claims Processed / Hour', value: '10,000+' },
+    { label: 'Uptime', value: '99.8%' },
+    { label: 'Cost Reduction', value: 'More than 70%' },
+    { label: 'Average Processing Speed', value: '<200ms' },
   ];
 
-  const currentContent = tabContents[activeTab];
-  const IconComponent = currentContent.icon;
+  const pillars = [
+    {
+      icon: Cpu,
+      title: 'AI-Powered Efficiency',
+      desc: 'Our multi-model AI engine processes and verifies claims in parallel, ensuring lightning-fast and reliable operations — even during peak loads.',
+    },
+    {
+      icon: Database,
+      title: 'Data Intelligence at Scale',
+      desc: 'We use NLP, OCR, and knowledge graphs to extract structured insights from even the most complex healthcare claim documents.',
+    },
+    {
+      icon: Shield,
+      title: 'Enterprise-Grade Security',
+      desc: 'With HIPAA, GDPR, and DPDPA compliance, every transaction is encrypted and every byte is monitored through real-time anomaly detection.',
+    },
+  ];
 
   return (
-    <section id="technology" className="relative w-full bg-[#F0F5FF] py-12 sm:py-16 lg:py-20 xl:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.h2 
-          className="text-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 md:mb-12 lg:mb-16"
-          style={{ fontFamily: 'Satoshi' }}
-          initial={{ opacity: 0, y: 30 }}
+    <section className="relative w-full bg-[#F9FAFF] py-20 md:py-28 overflow-hidden">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#E6ECFF] via-[#F9FAFF] to-white pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Intro */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          Technology That Sets ClaimNow Apart
-        </motion.h2>
+          <h2
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111827] mb-6"
+            style={{ fontFamily: 'Satoshi' }}
+          >
+            Technology That Drives <span className="text-[#2F5FED]">ClaimNow</span>
+          </h2>
+          <p
+            className="max-w-3xl mx-auto text-[#4B5563] text-base md:text-lg leading-relaxed"
+            style={{ fontFamily: 'Satoshi' }}
+          >
+            Built on a foundation of AI precision, real-time automation, and enterprise-grade security, ClaimNow transforms claim handling into a fast, transparent, and intelligent process.
+          </p>
+        </motion.div>
 
-        {/* Main Content Card */}
-        <motion.div 
-          className="bg-white border border-[#D2D9E8] rounded-3xl p-4 md:p-6 lg:p-8"
-          initial={{ opacity: 0, y: 40 }}
+        {/* Three Core Pillars */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+          {pillars.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center px-4"
+            >
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-[#E8EEFF] rounded-2xl flex items-center justify-center mb-5">
+                <item.icon size={36} className="text-[#2F5FED]" />
+              </div>
+              <h3
+                className="text-xl md:text-2xl font-semibold mb-3 text-[#111827]"
+                style={{ fontFamily: 'Satoshi' }}
+              >
+                {item.title}
+              </h3>
+              <p
+                className="text-[#4B5563] text-sm md:text-base leading-relaxed"
+                style={{ fontFamily: 'Satoshi' }}
+              >
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Visual Technology Showcase */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative mb-20"
+        >
+          <div className="relative w-full h-72 md:h-96 lg:h-[420px] rounded-3xl overflow-hidden shadow-[0_12px_50px_rgba(0,0,0,0.1)]">
+            <Image
+              src="/images/ai-powered-extraction.png"
+              alt="AI Visualization"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          </div>
+          <p
+            className="text-center mt-6 text-[#4B5563] text-sm md:text-base italic"
+            style={{ fontFamily: 'Satoshi' }}
+          >
+            A seamless orchestration of AI, automation, and intelligence — built to scale across every claim.
+          </p>
+        </motion.div>
+
+        {/* Key Metrics */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
         >
-          {/* Feature Tabs - Responsive Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-8 md:mb-12">
-            {tabs.map((tab) => (
-              <motion.button
-                key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
-                className={`relative h-14 rounded-xl flex items-center justify-start gap-2 md:gap-3 px-2 md:px-2 transition-all duration-300 ${
-                  activeTab === tab.key 
-                    ? 'text-white overflow-hidden' 
-                    : 'bg-[#F0F5FF] border border-[#D8DDE7] text-black hover:border-[#2F5FED30] hover:bg-[#F0F5FF]'
-                }`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+          {stats.map((stat, i) => (
+            <div key={i} className="flex flex-col items-center">
+              <motion.span
+                className="text-3xl md:text-4xl font-bold text-[#2F5FED]"
+                initial={{ scale: 0.8 }}
+                whileInView={{ scale: 1 }}
+                transition={{ type: 'spring', stiffness: 200 }}
               >
-                {/* Active background gradient */}
-                {activeTab === tab.key && (
-                  <motion.div
-                    className="absolute inset-0 rounded-xl"
-                    style={{ 
-                      background: 'linear-gradient(134deg, rgba(47, 95, 237, 1) 1%, rgba(84, 125, 245, 1) 100%)'
-                    }}
-                    layoutId="activeTabBackground"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-                
-                <div className="relative flex items-center gap-2 md:gap-3">
-                  {/* Icon container */}
-                  <div className={`w-8 h-8 md:w-12 md:h-12 rounded-lg flex items-center justify-center ${
-                    activeTab === tab.key 
-                      ? 'bg-[#F9FFDC] border border-[#C9DC69]' 
-                      : 'bg-[#F0F5FF]'
-                  }`}>
-                    <tab.icon 
-                      size={activeTab === tab.key ? 20 : 16}
-                      className={activeTab === tab.key ? 'text-[#2F5FED]' : 'text-[#2F5FED]  bg-gray-200'} 
-                    />
-                  </div>
-                  
-                  {/* Text - hidden on mobile for better fit */}
-                  <span 
-                    className={`hidden md:block font-medium text-sm lg:text-base ${
-                      activeTab === tab.key ? 'text-white' : 'text-black'
-                    }`}
-                    style={{ fontFamily: 'Satoshi' }}
-                  >
-                    {tab.label}
-                  </span>
-                </div>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Content Area - Responsive Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            
-            {/* Left Content */}
-            <div className="flex flex-col justify-between">
-              
-              {/* Title */}
-              <motion.div
-                key={`${activeTab}-title`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mb-6 md:mb-8"
-              >
-                <h3 
-                  className="text-black text-2xl md:text-3xl lg:text-4xl font-bold"
-                  style={{ fontFamily: 'Satoshi' }}
-                >
-                  {currentContent.title}
-                </h3>
-              </motion.div>
-
-              {/* Features List */}
-              <motion.div 
-                key={`${activeTab}-features`}
-                className="flex flex-col gap-3 mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                {currentContent.features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-start gap-3"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  >
-                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <IconComponent size={12} className="text-[#2F5FED]" />
-                    </div>
-                    <p 
-                      className="text-black flex-1 text-sm md:text-base"
-                      style={{ fontFamily: 'Satoshi', fontWeight: 500, lineHeight: '1.35em' }}
-                    >
-                      {feature}
-                    </p>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              {/* Description */}
-              <motion.div 
-                key={`${activeTab}-desc`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="mb-6"
-              >
-                <p 
-                  className="text-black text-sm md:text-base"
-                  style={{ fontFamily: 'Satoshi', fontWeight: 500, lineHeight: '1.35em' }}
-                >
-                  {currentContent.description}
-                </p>
-              </motion.div>
-
-              {/* CTA Button */}
-              <motion.div
-                key={`${activeTab}-cta`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <button
-                  onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
-                  className="bg-[#2F5FED] hover:bg-[#1E40AF] text-white px-6 py-3 rounded-lg font-semibold text-sm md:text-base transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                  style={{ fontFamily: 'Satoshi' }}
-                >
-                  Book a Live Demo
-                </button>
-              </motion.div>
+                {stat.value}
+              </motion.span>
+              <span className="text-[#4B5563] text-sm md:text-base mt-2">{stat.label}</span>
             </div>
-
-            {/* Right Content - Image */}
-            <motion.div 
-              key={`${activeTab}-image`}
-              className="relative"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <div className="relative w-full h-64 md:h-80 lg:h-96 xl:h-[420px] rounded-2xl overflow-hidden shadow-[0px_4px_44px_0px_rgba(0,0,0,0.25)]">
-                {currentContent.image.includes('triple-model') ? (
-                  <Image
-                    src={currentContent.image}
-                    alt={currentContent.title}
-                    fill
-                    className="object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-[#E3EDFF] to-[#F0F5FF] flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-[#2F5FED]/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <IconComponent size={32} className="text-[#2F5FED]" />
-                      </div>
-                      <div className="text-lg md:text-xl font-semibold text-[#2F5FED] mb-2">
-                        {currentContent.title}
-                      </div>
-                      <div className="text-sm text-[#2F5FED]/60 px-4">
-                        Technology visualization
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          </div>
+          ))}
         </motion.div>
       </div>
     </section>

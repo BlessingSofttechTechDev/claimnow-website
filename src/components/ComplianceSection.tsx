@@ -107,20 +107,6 @@ export default function ComplianceSection() {
                 >
                   Audited and certified under national insurance and data protection authorities for regulatory-grade reliability.
                 </p>
-
-                {/* CTA Button */}
-                <motion.button 
-                  onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
-                  className="px-6 py-3 rounded-full text-white text-sm font-bold"
-                  style={{ 
-                    background: 'rgba(255, 255, 255, 0.1)', 
-                    fontFamily: 'Satoshi'
-                  }}
-                  whileHover={{ scale: 1.05, background: 'rgba(255, 255, 255, 0.2)' }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Book a live demo
-                </motion.button>
               </div>
 
               {/* Data Confidence Image */}
@@ -169,20 +155,6 @@ export default function ComplianceSection() {
                 >
                   Trusted and deployed by top insurance and healthcare networks powering millions of secure claim transactions daily.
                 </p>
-
-                {/* CTA Button */}
-                <motion.button 
-                  onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
-                  className="px-6 py-3 rounded-full border border-black text-[#1D2433] text-sm font-bold"
-                  style={{ 
-                    background: 'rgba(255, 255, 255, 0.1)', 
-                    fontFamily: 'Satoshi'
-                  }}
-                  whileHover={{ scale: 1.05, background: 'rgba(0, 0, 0, 0.05)' }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Book a live demo
-                </motion.button>
               </div>
 
               {/* Industry Leaders Image */}

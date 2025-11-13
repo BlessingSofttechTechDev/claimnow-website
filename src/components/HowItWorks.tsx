@@ -10,7 +10,7 @@ export default function HowItWorks() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((p) => (p === 5 ? 1 : p + 1));
-    }, 5000);
+    }, 9000); // Changed to 9 seconds
     return () => clearInterval(interval);
   }, []);
 
@@ -248,28 +248,6 @@ export default function HowItWorks() {
             </div>
           </div>
         </div>
-
-        {/* Call to Action */}
-        <motion.div 
-          className="text-center mt-16 lg:mt-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <motion.button
-            onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#2F5FED] to-[#547DF5] text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-            style={{ fontFamily: 'Satoshi' }}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            See ClaimNow in Action
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

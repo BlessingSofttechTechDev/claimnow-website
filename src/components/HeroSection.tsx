@@ -1,9 +1,31 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
 
 const HeroSection = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: 'How it Works', href: '#how-it-works' },
+    { name: 'Product Demo', href: '#results' },
+    { name: 'Key Features', href: '#technology' },
+    { name: 'Use Cases', href: '#key-highlights' }
+  ];
+
+  const handleNavClick = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <section className="relative w-full min-h-screen bg-[#F0F5FF] overflow-hidden flex flex-col items-center justify-start px-6 sm:px-12 md:px-20 py-0">
       {/* Background Image */}
@@ -22,28 +44,26 @@ const HeroSection = () => {
         className="absolute w-[200vw] h-[60vh] bg-white blur-[540px] top-[-20vh] left-[-50vw]"
       />
 
-      {/* Navigation */}
+      {/* Navigation - Desktop & Mobile */}
       <motion.nav
-        className="w-full flex justify-between items-center py-6 relative z-10"
+        className="w-full flex justify-between items-center py-6 relative z-50"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div
-          className="text-[#2F5FED] text-xl font-bold"
-          style={{ fontFamily: 'Satoshi' }}
-        >
-          ClaimNow
+        <div className="flex items-center">
+          <Image
+            src="/logo.svg"
+            alt="ClaimNow"
+            width={120}
+            height={32}
+            className="h-8 w-auto"
+          />
         </div>
 
-        {/* Links (hidden on small) */}
+        {/* Desktop Links */}
         <div className="hidden md:flex gap-6">
-          {[
-            { name: 'How it Works', href: '#how-it-works' },
-            { name: 'Product Demo', href: '#results' },
-            { name: 'Key Features', href: '#technology' },
-            { name: 'Use Cases', href: '#key-highlights' }
-          ].map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
@@ -51,13 +71,7 @@ const HeroSection = () => {
               style={{ fontFamily: 'Satoshi' }}
               onClick={(e) => {
                 e.preventDefault();
-                const element = document.querySelector(link.href);
-                if (element) {
-                  element.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                  });
-                }
+                handleNavClick(link.href);
               }}
             >
               {link.name}
@@ -65,17 +79,88 @@ const HeroSection = () => {
           ))}
         </div>
 
-        {/* CTA */}
-        <motion.button
-          onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
-          className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#2F5FED] to-[#547DF5] text-white rounded-full text-sm font-bold px-5 py-2.5 border border-[#B8C6ED] hover:shadow-lg transition-all duration-300"
-          style={{ fontFamily: 'Satoshi' }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden p-2 rounded-lg hover:bg-white/50 transition-colors"
+          aria-label="Toggle menu"
         >
-          Book a Demo
-        </motion.button>
+          {isMobileMenuOpen ? (
+            <X size={24} className="text-[#1D2433]" />
+          ) : (
+            <Menu size={24} className="text-[#1D2433]" />
+          )}
+        </button>
       </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/50 z-40 md:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 md:hidden"
+            >
+              <div className="flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <div className="flex items-center">
+                    <Image
+                      src="/logo.svg"
+                      alt="ClaimNow"
+                      width={100}
+                      height={28}
+                      className="h-7 w-auto"
+                    />
+                  </div>
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                    aria-label="Close menu"
+                  >
+                    <X size={24} className="text-[#1D2433]" />
+                  </button>
+                </div>
+
+                {/* Navigation Links */}
+                <nav className="flex flex-col p-6 space-y-4">
+                  {navLinks.map((link, index) => (
+                    <motion.a
+                      key={link.name}
+                      href={link.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="text-[#1D2433] text-base font-medium hover:text-[#2F5FED] transition-colors py-3 border-b border-gray-100 cursor-pointer"
+                      style={{ fontFamily: 'Satoshi' }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(link.href);
+                      }}
+                    >
+                      {link.name}
+                    </motion.a>
+                  ))}
+                </nav>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       <div className="relative z-10 flex flex-col items-center text-center mt-12 md:mt-20">
         <motion.h1
@@ -106,24 +191,41 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          {/* <motion.button
-            onClick={() => window.open('https://cal.com/blessing-softtech-development-gtbop7/claim-now-demo', '_blank')}
-            className="bg-white/10 backdrop-blur-sm text-[#1D2433] rounded-full text-sm font-bold px-5 py-2.5 hover:bg-white/20 transition-all duration-300"
-            style={{ fontFamily: 'Satoshi' }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Book a live demo
-          </motion.button> */}
-
           <motion.button
-            onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
-            className="bg-gradient-to-r from-[#2F5FED] to-[#547DF5] text-white rounded-full text-sm font-bold px-5 py-2.5 hover:shadow-lg transition-all duration-300"
-            style={{ fontFamily: 'Satoshi' }}
-            whileHover={{ scale: 1.05 }}
+            onClick={() => {
+              const element = document.querySelector('#key-highlights');
+              if (element) {
+                element.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }}
+            className="flex items-center justify-center w-14 h-14 bg-gradient-to-r from-[#2F5FED] to-[#547DF5] backdrop-blur-sm rounded-full border-2 border-white/50 text-white hover:from-[#1e4edc] hover:to-[#4369e3] hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 group shadow-lg"
+            whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            animate={{ 
+              y: [0, -4, 0],
+            }}
+            transition={{ 
+              y: {
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }
+            }}
           >
-            Book a live demo
+            <svg 
+              width="28" 
+              height="28" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2.5"
+              className="group-hover:translate-y-1 transition-transform duration-300"
+            >
+              <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
           </motion.button>
         </motion.div>
       </div>
@@ -170,7 +272,7 @@ const HeroSection = () => {
           {[
             { value: '99%+', label: 'OCR ACCURACY' },
             { value: '>99%', label: 'ACCURACY' },
-            { value: '7X', label: 'FASTER CLAIMS' },
+            { value: '<300s', label: 'PROCESS TIME' },
           ].map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center">
               <div className="text-3xl font-medium text-[#1D2433]" style={{ fontFamily: 'Satoshi' }}>

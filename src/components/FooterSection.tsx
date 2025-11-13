@@ -61,26 +61,6 @@ export default function FooterSection() {
           >
             Reads and understands every medical bill, printed or handwritten, across multiple languages.
           </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div 
-            className="flex flex-col sm:flex-row items-center gap-4 mb-16 md:mb-20"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-
-            <motion.button 
-              onClick={() => window.open('https://cal.com/manas-singhal-f6q5cy/demo', '_blank')}
-              className="bg-[#F9FFDC] text-[#1D2433] px-6 py-3 rounded-full hover:bg-white transition-all duration-300 text-sm font-bold"
-              style={{ fontFamily: 'Satoshi' }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Book a live demo
-            </motion.button>
-          </motion.div>
         </div>
 
         {/* Footer Navigation */}
@@ -94,30 +74,70 @@ export default function FooterSection() {
           {/* Navigation Links */}
           <div className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12 mb-6 md:mb-8">
             <a 
-              href="#" 
-              className="text-white hover:text-[#F9FFDC] transition-colors text-sm font-medium"
+              href="#how-it-works" 
+              className="text-white hover:text-[#F9FFDC] transition-colors text-sm font-medium cursor-pointer"
               style={{ fontFamily: 'Satoshi' }}
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector('#how-it-works');
+                if (element) {
+                  element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
             >
               How it Works
             </a>
             <a 
-              href="#" 
-              className="text-white hover:text-[#F9FFDC] transition-colors text-sm font-medium"
+              href="#results" 
+              className="text-white hover:text-[#F9FFDC] transition-colors text-sm font-medium cursor-pointer"
               style={{ fontFamily: 'Satoshi' }}
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector('#results');
+                if (element) {
+                  element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
             >
               Product Demo
             </a>
             <a 
-              href="#" 
-              className="text-white hover:text-[#F9FFDC] transition-colors text-sm font-medium"
+              href="#technology" 
+              className="text-white hover:text-[#F9FFDC] transition-colors text-sm font-medium cursor-pointer"
               style={{ fontFamily: 'Satoshi' }}
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector('#technology');
+                if (element) {
+                  element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
             >
               Key Features
             </a>
             <a 
-              href="#" 
-              className="text-white hover:text-[#F9FFDC] transition-colors text-sm font-medium"
+              href="#key-highlights" 
+              className="text-white hover:text-[#F9FFDC] transition-colors text-sm font-medium cursor-pointer"
               style={{ fontFamily: 'Satoshi' }}
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector('#key-highlights');
+                if (element) {
+                  element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
             >
               Use Cases
             </a>
@@ -141,6 +161,28 @@ export default function FooterSection() {
           transition={{ duration: 1, delay: 0.8 }}
         >
           ClaimNow
+        </motion.div>
+
+        {/* Blessing Softtech Credit */}
+        <motion.div
+          className="mt-8 md:mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          <p className="text-white/70 text-sm md:text-base" style={{ fontFamily: 'Satoshi' }}>
+            A product by{' '}
+            <a
+              href="https://blessingsofttech.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-[#F9FFDC] transition-colors font-semibold underline decoration-1 underline-offset-4"
+              style={{ fontFamily: 'Satoshi' }}
+            >
+              Blessing Softtech
+            </a>
+          </p>
         </motion.div>
       </div>
     </section>
