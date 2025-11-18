@@ -14,7 +14,7 @@ export const FloatingDemoButton = () => {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-50 group">
+    <div className="fixed bottom-16 right-2 z-50 group">
       {/* Hover trigger area - invisible but extends the hover zone */}
       <div className="absolute -inset-8 pointer-events-auto" />
 

@@ -196,7 +196,7 @@ export const ContactSection = () => {
                     <Input
                       id="name"
                       type="text"
-                      placeholder="John Smith"
+                      placeholder="First Last"
                       className="h-12 rounded-2xl border-border focus:border-primary transition-colors"
                       {...register("name")}
                       disabled={isSubmitting}
@@ -217,7 +217,7 @@ export const ContactSection = () => {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="john@company.com"
+                      placeholder="name@company.com"
                       className="h-12 rounded-2xl border-border focus:border-primary transition-colors"
                       {...register("email")}
                       disabled={isSubmitting}
@@ -238,7 +238,7 @@ export const ContactSection = () => {
                     <Input
                       id="phone"
                       type="tel"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+91 1234567891"
                       className="h-12 rounded-2xl border-border focus:border-primary transition-colors"
                       {...register("phone")}
                       disabled={isSubmitting}

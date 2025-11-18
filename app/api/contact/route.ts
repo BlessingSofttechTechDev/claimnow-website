@@ -28,15 +28,15 @@ if (isGmail) {
   // Hostinger SMTP settings
   transporter = nodemailer.createTransport({
     host: 'smtp.hostinger.com',
-    port: 587, // Use port 587 for TLS
-    secure: false, // Use STARTTLS
+    port: 465, // Use port 465 for SSL (Hostinger default)
+    secure: true, // Use SSL
     auth: {
       user: EMAIL_USER,
       pass: EMAIL_PASS,
     },
     tls: {
+      rejectUnauthorized: false, // Accept self-signed certificates
       ciphers: 'SSLv3',
-      rejectUnauthorized: false,
     },
   });
 } else {
