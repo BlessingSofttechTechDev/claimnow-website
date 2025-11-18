@@ -229,11 +229,32 @@ export const ContactSection = () => {
                     )}
                   </div>
 
+                  {/* Phone Field */}
+                  <div className="space-y-2">
+                    <Label htmlFor="phone" className="text-sm font-medium text-foreground flex items-center gap-2">
+                      <Phone className="h-4 w-4 text-primary" />
+                      Phone Number
+                    </Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="+1 (555) 123-4567"
+                      className="h-12 rounded-2xl border-border focus:border-primary transition-colors"
+                      {...register("phone")}
+                      disabled={isSubmitting}
+                    />
+                    {errors.phone && (
+                      <p className="text-sm text-destructive flex items-center gap-1">
+                        {errors.phone.message}
+                      </p>
+                    )}
+                  </div>
+
                   {/* Company Field */}
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-sm font-medium text-foreground flex items-center gap-2">
                       <Building2 className="h-4 w-4 text-primary" />
-                      Company Name
+                      Company Name (Optional)
                     </Label>
                     <Input
                       id="company"

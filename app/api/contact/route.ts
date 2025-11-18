@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import type { Transporter } from 'nodemailer';
 import { isValidEmail, isValidPhone, isDisposableEmail } from '@/lib/validation';
 import { rateLimit } from '@/lib/rateLimit';
 
@@ -8,27 +9,48 @@ const EMAIL_USER = process.env.EMAIL_USER || '';
 const EMAIL_PASS = process.env.EMAIL_PASS || '';
 const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'contact@claimnow.ai';
 
-// Auto-detect Gmail vs Custom SMTP
+// Auto-detect email provider
 const isGmail = EMAIL_USER.includes('@gmail.com');
+const isHostinger = EMAIL_USER.includes('claimnow.ai');
 
 // Configure nodemailer transporter
-const transporter = isGmail
-  ? nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: EMAIL_USER,
-        pass: EMAIL_PASS,
-      },
-    })
-  : nodemailer.createTransport({
-      host: 'smtp.hostinger.com',
-      port: 465,
-      secure: true,
-      auth: {
-        user: EMAIL_USER,
-        pass: EMAIL_PASS,
-      },
-    });
+let transporter: Transporter;
+
+if (isGmail) {
+  transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: EMAIL_USER,
+      pass: EMAIL_PASS,
+    },
+  });
+} else if (isHostinger) {
+  // Hostinger SMTP settings
+  transporter = nodemailer.createTransport({
+    host: 'smtp.hostinger.com',
+    port: 587, // Use port 587 for TLS
+    secure: false, // Use STARTTLS
+    auth: {
+      user: EMAIL_USER,
+      pass: EMAIL_PASS,
+    },
+    tls: {
+      ciphers: 'SSLv3',
+      rejectUnauthorized: false,
+    },
+  });
+} else {
+  // Generic SMTP
+  transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: parseInt(process.env.SMTP_PORT || '587'),
+    secure: false,
+    auth: {
+      user: EMAIL_USER,
+      pass: EMAIL_PASS,
+    },
+  });
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -55,6 +77,26 @@ export async function POST(request: NextRequest) {
         { error: 'Invalid phone number. Must be at least 10 digits' },
         { status: 400 }
       );
+    }
+
+    // Check if email is configured
+    if (!EMAIL_USER || !EMAIL_PASS) {
+      // Development mode - just log the submission
+      console.log('📧 Contact Form Submission (Email not configured):');
+      console.log({
+        name,
+        email,
+        phone,
+        company: company || 'N/A',
+        message,
+        timestamp: new Date().toISOString(),
+      });
+
+      return NextResponse.json({
+        success: true,
+        message: 'Message received! (Development mode - email not sent)',
+        data: { name, email, phone, company, message },
+      });
     }
 
     // Rate limiting
