@@ -9,48 +9,15 @@ const EMAIL_USER = process.env.EMAIL_USER || '';
 const EMAIL_PASS = process.env.EMAIL_PASS || '';
 const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'contact@claimnow.ai';
 
-// Auto-detect email provider
-const isGmail = EMAIL_USER.includes('@gmail.com');
-const isHostinger = EMAIL_USER.includes('claimnow.ai');
-
 // Configure nodemailer transporter
-let transporter: Transporter;
-
-if (isGmail) {
-  transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: EMAIL_USER,
-      pass: EMAIL_PASS,
-    },
-  });
-} else if (isHostinger) {
-  // Hostinger SMTP settings
-  transporter = nodemailer.createTransport({
-    host: 'smtp.hostinger.com',
-    port: 465, // Use port 465 for SSL (Hostinger default)
-    secure: true, // Use SSL
-    auth: {
-      user: EMAIL_USER,
-      pass: EMAIL_PASS,
-    },
-    tls: {
-      rejectUnauthorized: false, // Accept self-signed certificates
-      ciphers: 'SSLv3',
-    },
-  });
-} else {
-  // Generic SMTP
-  transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: parseInt(process.env.SMTP_PORT || '587'),
-    secure: false,
-    auth: {
-      user: EMAIL_USER,
-      pass: EMAIL_PASS,
-    },
-  });
-}
+// Using Gmail for contact@claimnow.ai (workspace email forwarding to Gmail)
+const transporter: Transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: EMAIL_USER,
+    pass: EMAIL_PASS, // This should be a Gmail App Password
+  },
+});
 
 export async function POST(request: NextRequest) {
   try {
@@ -79,10 +46,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if email is configured
-    if (!EMAIL_USER || !EMAIL_PASS) {
-      // Development mode - just log the submission
-      console.log('📧 Contact Form Submission (Email not configured):');
+    // Check if email is configured or use development mode
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    const useTestMode = process.env.TEST_MODE === 'true' || !EMAIL_USER || !EMAIL_PASS;
+    
+    if (useTestMode) {
+      // Development/Test mode - just log the submission
+      console.log('📧 Contact Form Submission (Test Mode):');
       console.log({
         name,
         email,
@@ -94,8 +64,10 @@ export async function POST(request: NextRequest) {
 
       return NextResponse.json({
         success: true,
-        message: 'Message received! (Development mode - email not sent)',
-        data: { name, email, phone, company, message },
+        message: isDevelopment 
+          ? 'Message received! (Test mode - email not sent)' 
+          : 'Your message has been sent successfully! We\'ll get back to you soon.',
+        data: isDevelopment ? { name, email, phone, company, message } : undefined,
       });
     }
 
@@ -252,8 +224,20 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Contact form error:', error);
+    
+    // If it's an authentication error, provide more helpful message
+    if (error instanceof Error && error.message.includes('authentication failed')) {
+      return NextResponse.json(
+        { 
+          error: 'Email configuration error. Please contact support at contact@claimnow.ai',
+          details: process.env.NODE_ENV === 'development' ? 'SMTP authentication failed - check email credentials' : undefined
+        },
+        { status: 500 }
+      );
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to send message. Please try again later.' },
+      { error: 'Failed to send message. Please try again later or contact us directly at contact@claimnow.ai' },
       { status: 500 }
     );
   }
