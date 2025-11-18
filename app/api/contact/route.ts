@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { validateEmail, validatePhone } from '@/lib/validation';
+import { isValidEmail, isValidPhone, isDisposableEmail } from '@/lib/validation';
 import { rateLimit } from '@/lib/rateLimit';
 
 // Email configuration
@@ -43,14 +43,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!validateEmail(email)) {
+    if (!isValidEmail(email) || isDisposableEmail(email)) {
       return NextResponse.json(
         { error: 'Invalid or disposable email address' },
         { status: 400 }
       );
     }
 
-    if (!validatePhone(phone)) {
+    if (!isValidPhone(phone)) {
       return NextResponse.json(
         { error: 'Invalid phone number. Must be at least 10 digits' },
         { status: 400 }
@@ -59,8 +59,8 @@ export async function POST(request: NextRequest) {
 
     // Rate limiting
     const rateLimitResult = rateLimit(email.toLowerCase(), 3, 60 * 60 * 1000);
-    if (!rateLimitResult.allowed) {
-      const resetTime = new Date(rateLimitResult.resetTime!).toLocaleTimeString();
+    if (!rateLimitResult.success) {
+      const resetTime = new Date(rateLimitResult.resetTime).toLocaleTimeString();
       return NextResponse.json(
         {
           error: `Rate limit exceeded. You can submit again at ${resetTime}`,

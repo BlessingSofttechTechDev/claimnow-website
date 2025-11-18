@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Play, Sparkles, Activity, Brain, Shield, Zap, ChevronDown } from "lucide-react";
+import { Play, Sparkles, Activity, Brain, Shield, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Particles } from "@/components/ui/particles";
 

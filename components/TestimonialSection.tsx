@@ -1,5 +1,7 @@
+'use client';
+
+import Image from "next/image";
 import { Quote } from "lucide-react";
-import testimonialPerson from "@/assets/testimonial-person.jpg";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -41,9 +43,11 @@ export const TestimonialSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img 
-                src={testimonialPerson} 
+              <Image 
+                src="/assets/testimonial-person.jpg" 
                 alt="Dr. Emily Chen, Chief Medical Officer"
+                width={600}
+                height={600}
                 className="w-full h-auto object-cover aspect-square"
               />
             </div>
