@@ -1,0 +1,25 @@
+{
+  "name": "ClaimNow AI - Medical Claims Processing Automation",
+  "short_name": "ClaimNow AI",
+  "description": "AI-powered medical claims processing with 99%+ accuracy",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#166534",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "medical",
+    "productivity"
+  ],
+  "lang": "en-US",
+  "dir": "ltr"
+}
