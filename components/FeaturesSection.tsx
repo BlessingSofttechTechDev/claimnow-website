@@ -91,7 +91,7 @@ export const FeaturesSection = () => {
             <span className="text-muted-foreground text-sm">Cost Reduction</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-4xl font-bold text-primary mb-2">&lt;200ms</span>
+            <span className="text-4xl font-bold text-primary mb-2">&lt;300s</span>
             <span className="text-muted-foreground text-sm">Avg Processing Speed</span>
           </div>
         </motion.div>
