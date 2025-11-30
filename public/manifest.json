@@ -1,7 +1,7 @@
 {
-  "name": "ClaimNow AI - Medical Claims Processing Automation",
-  "short_name": "ClaimNow AI",
-  "description": "AI-powered medical claims processing with 99%+ accuracy",
+  "name": "ClaimNow AI - Best Insurance Automation Software",
+  "short_name": "ClaimNow",
+  "description": "ClaimNow AI - Best insurance automation software for medical claims processing with 99%+ accuracy and 10x faster processing",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -18,7 +18,16 @@
   "categories": [
     "business",
     "medical",
-    "productivity"
+    "productivity",
+    "finance",
+    "insurance"
+  ],
+  "keywords": [
+    "ClaimNow",
+    "insurance automation",
+    "claims processing",
+    "medical claims",
+    "AI automation"
   ],
   "lang": "en-US",
   "dir": "ltr"

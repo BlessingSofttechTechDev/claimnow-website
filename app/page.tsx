@@ -16,37 +16,39 @@ export default function Home() {
       <SideNav />
       <FloatingDemoButton />
       
-      <div id="hero">
-        <Hero />
-      </div>
-      
-      <div id="metrics">
-        <MetricsSection />
-      </div>
-      
-      <div id="how-it-works">
-        <HowItWorksSection />
-      </div>
-      
-      <div id="features">
-        <FeaturesSection />
-      </div>
-      
-      <div id="integrations">
-        <IntegrationsSection />
-      </div>
-      
-      <div id="trusted">
-        <TrustedSection />
-      </div>
-      
-      <div id="faq">
-        <FAQSection />
-      </div>
-      
-      <div id="contact">
-        <ContactSection />
-      </div>
+      <main>
+        <header id="hero">
+          <Hero />
+        </header>
+        
+        <section id="metrics" aria-label="Performance Metrics">
+          <MetricsSection />
+        </section>
+        
+        <section id="how-it-works" aria-label="How ClaimNow AI Works">
+          <HowItWorksSection />
+        </section>
+        
+        <section id="features" aria-label="ClaimNow AI Features">
+          <FeaturesSection />
+        </section>
+        
+        <section id="integrations" aria-label="Integrations and Partnerships">
+          <IntegrationsSection />
+        </section>
+        
+        <section id="trusted" aria-label="Trusted by Leading Organizations">
+          <TrustedSection />
+        </section>
+        
+        <section id="faq" aria-label="Frequently Asked Questions">
+          <FAQSection />
+        </section>
+        
+        <section id="contact" aria-label="Contact Us">
+          <ContactSection />
+        </section>
+      </main>
       
       <Footer />
     </div>

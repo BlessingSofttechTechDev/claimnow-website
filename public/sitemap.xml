@@ -5,12 +5,13 @@
   <!-- Homepage -->
   <url>
     <loc>https://claimnow.ai/</loc>
-    <lastmod>2025-11-16</lastmod>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://claimnow.ai/logo.svg</image:loc>
-      <image:title>ClaimNow AI Logo</image:title>
+      <image:title>ClaimNow AI - Best Insurance Automation Software</image:title>
+      <image:caption>ClaimNow AI Logo - Best Insurance Automation Software</image:caption>
     </image:image>
   </url>
 
